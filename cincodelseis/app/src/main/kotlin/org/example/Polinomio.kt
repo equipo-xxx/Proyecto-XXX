@@ -1,5 +1,5 @@
 package org.example
-class Polinomio {
+open class Polinomio {
     override fun toString():String{
     return "Soy un caca- polinomio!"
     }
