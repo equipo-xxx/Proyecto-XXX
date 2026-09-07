@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://bo0y8a6t3q0ik"]
+
+[ext_resource type="Script" uid="uid://b6ddhdakfwop0" path="res://canon.gd" id="2_ic43e"]
+
+[sub_resource type="GDScript" id="GDScript_yk8ln"]
+script/source = "extends StaticBody3D
+#INTERACTUAR
+var player
+var interac_canon:bool = false
+var sob_canon:bool = false
+@onready var cam_can: Camera3D =  $can/Camera3D
+
+
+#SABER CUANDO ESTA EN EL RANGO
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	if body.name == \"player\":
+		player = body
+		interac_canon = true
+		#SALE DEL AREA (aBAJO)
+func _on_area_3d_body_exited(body: Node3D) -> void:
+		if body.name == \"player\":
+			interac_canon = false
+#SUBIRSE Y BAJAR DEL CAÑON
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed(\"Interactuar\") and interac_canon:
+		mount()
+func mount():
+	sob_canon = !sob_canon
+	if sob_canon:
+		player.speed = 0.0 # Detiene el movimiento usando tu variable 'speed'
+		cam_can.current = true
+	else:
+		player.speed = 5
+		cam_can.current =false
+		
+"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6fohw"]
+size = Vector3(0.1586914, 0.16601563, 0.33642578)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_tt02m"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_p2ion"]
+height = 0.56359863
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t7x1y"]
+size = Vector3(1, 1.1123047, 1)
+
+[node name="StaticBody3D" type="StaticBody3D" unique_id=1850281456]
+script = SubResource("GDScript_yk8ln")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1914894318]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8887789, 0.84017724, -0.06225586)
+shape = SubResource("BoxShape3D_6fohw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=682837943]
+transform = Transform3D(0.18073887, 0, 0, 0, -0.0004857757, -0.1897359, 0, 0.032582875, -0.002828756, -1.8954797, 0.83519405, 0.03473836)
+mesh = SubResource("CylinderMesh_tt02m")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1177073544]
+transform = Transform3D(0.18073887, 0, 0, 0, -0.0004857757, -0.1897359, 0, 0.032582875, -0.002828756, -1.8954797, 0.82945246, -0.15695456)
+mesh = SubResource("CylinderMesh_tt02m")
+script = ExtResource("2_ic43e")
+
+[node name="can" type="Node3D" parent="." unique_id=2144201978]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3167903, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="can" unique_id=1263303964]
+transform = Transform3D(0.05884524, 0.7066727, 0, -0.120351054, 0.34552523, 0, 0, 0, 0.16142224, -1.7762878, -0.37516904, -0.062514395)
+mesh = SubResource("CylinderMesh_p2ion")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=985051720]
+transform = Transform3D(0.06045178, 0, -0.99817115, 0, 1, 0, 0.99817115, 0, 0.06045178, -2.0441754, 0.9508023, -0.055523276)
+
+[node name="Area3D" type="Area3D" parent="." unique_id=70334787]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1332987263]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8427624, 0.64259034, -0.08803055)
+shape = SubResource("BoxShape3D_t7x1y")
