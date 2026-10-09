@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://dqlcydt8tu47s"]
+
+[ext_resource type="Script" uid="uid://ca1bqdwa55ta8" path="res://codigo/final.gd" id="1_h0aww"]
+
+[node name="final" type="Control" unique_id=71895270]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=776287273]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.51849383, 0.51105326, 0.89458406, 1)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=234340811]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=899027918]
+layout_mode = 0
+offset_left = 424.0
+offset_top = 432.0
+offset_right = 744.0
+offset_bottom = 528.0
+
+[node name="salir2" type="Button" parent="VBoxContainer" unique_id=1184771522]
+layout_mode = 2
+theme_override_font_sizes/font_size = 43
+text = "SALIR"
+script = ExtResource("1_h0aww")
+
+[node name="Volver a jugar" type="Button" parent="VBoxContainer" unique_id=697265278]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Volver a jugar"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=2085410527]
+layout_mode = 0
+offset_left = 288.0
+offset_top = 128.0
+offset_right = 608.0
+offset_bottom = 194.0
+
+[node name="Button" type="Button" parent="VBoxContainer2" unique_id=1716275506]
+layout_mode = 2
+theme_override_font_sizes/font_size = 53
+text = "FELICIDADES GANASTE"
+
+[connection signal="pressed" from="VBoxContainer/salir2" to="VBoxContainer/salir2" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/Volver a jugar" to="VBoxContainer/salir2" method="_on_volver_a_jugar_pressed"]

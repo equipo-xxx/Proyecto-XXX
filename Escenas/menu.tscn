@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://csb4a4cyfs00j"]
+
+[ext_resource type="Script" uid="uid://mm3bcp70vfg8" path="res://codigo/menu.gd" id="1_lti8b"]
+
+[node name="Menu" type="Control" unique_id=928463284]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lti8b")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1741788455]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.23719814, 0.66105837, 0.61874926, 1)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1163780082]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1591736675]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.49800003
+anchor_top = 0.762
+anchor_right = 0.49800003
+anchor_bottom = 0.762
+offset_left = -160.69604
+offset_top = -77.776
+offset_right = 161.30396
+offset_bottom = 77.224
+theme_override_constants/separation = 40
+
+[node name="JUGAR" type="Button" parent="VBoxContainer" unique_id=1608028578]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "JUGAR"
+
+[node name="Salir" type="Button" parent="VBoxContainer" unique_id=1587954950]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "SALIR"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=1352552045]
+layout_mode = 0
+offset_left = 382.0
+offset_top = 62.0
+offset_right = 756.0
+offset_bottom = 130.0
+
+[node name="Button" type="Button" parent="VBoxContainer2" unique_id=341212583]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Lanza huevas"
+
+[connection signal="pressed" from="VBoxContainer/JUGAR" to="." method="_on_jugar_pressed"]
+[connection signal="pressed" from="VBoxContainer/Salir" to="." method="_on_salir_pressed"]
