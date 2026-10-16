@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://cwnqa8tc1tgi1"]
+
+[ext_resource type="Script" uid="uid://cwf31pl4jkjj7" path="res://cannon.gd" id="1_kga2e"]
+[ext_resource type="Script" uid="uid://b6ddhdakfwop0" path="res://canon.gd" id="2_4j2uh"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_x2c7a"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_t7x1y"]
+height = 0.56359863
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_idqip"]
+size = Vector3(1, 0.55578613, 1.144043)
+
+[node name="Node3D" type="Node3D" unique_id=731556146]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1409206107]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6119516, 0)
+script = ExtResource("1_kga2e")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=9581385]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1724911215]
+transform = Transform3D(0.18073887, 0, 0, 0, -0.0004857757, -0.1897359, 0, 0.032582875, -0.002828756, -1.8954797, -0.48159623, 0.03473836)
+mesh = SubResource("CylinderMesh_x2c7a")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="StaticBody3D" unique_id=823716405]
+transform = Transform3D(0.18073887, 0, 0, 0, -0.0004857757, -0.1897359, 0, 0.032582875, -0.002828756, -1.8954797, -0.48733783, -0.15695456)
+mesh = SubResource("CylinderMesh_x2c7a")
+script = ExtResource("2_4j2uh")
+
+[node name="can" type="Node3D" parent="StaticBody3D" unique_id=1629687410]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.98146456, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/can" unique_id=2021874649]
+transform = Transform3D(0.05884524, 0.7066727, 0, -0.120351054, 0.34552523, 0, 0, 0, 0.16142224, -1.7762878, -0.37516904, -0.062514395)
+mesh = SubResource("CylinderMesh_t7x1y")
+
+[node name="Camera3D" type="Camera3D" parent="StaticBody3D/can" unique_id=1508847534]
+transform = Transform3D(0.06045178, 0, -0.99817115, 0, 1, 0, 0.99817115, 0, 0.06045178, -2.0441754, -0.36598802, -0.055523276)
+
+[node name="Area3D" type="Area3D" parent="StaticBody3D" unique_id=2119419566]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D/Area3D" unique_id=1215259360]
+transform = Transform3D(0.335437, 0, 0, 0, 0.33216006, 0, 0, 0, 0.3656314, -1.987002, -0.45424342, -0.02946946)
+shape = SubResource("BoxShape3D_idqip")
+
+[connection signal="body_entered" from="StaticBody3D/Area3D" to="StaticBody3D" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="StaticBody3D/Area3D" to="StaticBody3D" method="_on_area_3d_body_exited"]
