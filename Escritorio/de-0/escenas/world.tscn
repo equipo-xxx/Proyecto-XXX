@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://k7aoggg482l2"]
+
+[ext_resource type="PackedScene" uid="uid://cysowet5ykqjk" path="res://escenas/player.tscn" id="1_58mta"]
+[ext_resource type="PackedScene" uid="uid://b2b48mxigpxxp" path="res://escenas/cannon.tscn" id="2_xsxho"]
+[ext_resource type="PackedScene" uid="uid://buyw328nxybm1" path="res://pared.tscn" id="3_xsxho"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_x2c7a"]
+size = Vector3(7.620178, 1, 2.430664)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t7x1y"]
+size = Vector3(7.557495, 1, 2.4257813)
+
+[node name="world" type="Node3D" unique_id=108287031]
+
+[node name="player" parent="." unique_id=1576967727 instance=ExtResource("1_58mta")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9984069, 2.5871274)
+
+[node name="cannon" parent="." unique_id=1135498982 instance=ExtResource("2_xsxho")]
+
+[node name="StaticBody3D" parent="." unique_id=723678759 instance=ExtResource("3_xsxho")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1815252, -5.7372284)
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="." unique_id=295827995]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1491402, 0.068912625, -4.954028)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2" unique_id=1411967657]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5111388, 0, -0.71533203)
+mesh = SubResource("BoxMesh_x2c7a")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2" unique_id=1928325318]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.46099854, 0, -0.7128906)
+shape = SubResource("BoxShape3D_t7x1y")
