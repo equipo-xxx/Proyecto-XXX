@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dqlcydt8tu47s"]
 
 [ext_resource type="Script" uid="uid://ca1bqdwa55ta8" path="res://codigo/final.gd" id="1_h0aww"]
+[ext_resource type="Texture2D" uid="uid://dwp1p8wpf2w8o" path="res://Imagenes/9.jpeg" id="1_teg0c"]
 
 [node name="final" type="Control" unique_id=71895270]
 layout_mode = 3
@@ -26,6 +27,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("1_teg0c")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=899027918]
 layout_mode = 0
@@ -55,7 +57,8 @@ offset_bottom = 194.0
 [node name="Button" type="Button" parent="VBoxContainer2" unique_id=1716275506]
 layout_mode = 2
 theme_override_font_sizes/font_size = 53
-text = "FELICIDADES GANASTE"
+text = "FELICIDADES GANASTE, 
+VENCISTE AL DIABLO"
 
 [connection signal="pressed" from="VBoxContainer/salir2" to="VBoxContainer/salir2" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/Volver a jugar" to="VBoxContainer/salir2" method="_on_volver_a_jugar_pressed"]

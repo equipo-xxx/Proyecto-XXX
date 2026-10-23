@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://csb4a4cyfs00j"]
 
-[ext_resource type="Script" uid="uid://mm3bcp70vfg8" path="res://codigo/menu.gd" id="1_lti8b"]
+[ext_resource type="Script" uid="uid://dq062b41j2281" path="res://codigo/menu.gd" id="1_lti8b"]
+[ext_resource type="Texture2D" uid="uid://bq5d71ykmmw5k" path="res://Imagenes/10.jpeg" id="2_p25xy"]
 
 [node name="Menu" type="Control" unique_id=928463284]
 layout_mode = 3
@@ -27,6 +28,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_p25xy")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1591736675]
 layout_mode = 1
@@ -61,7 +63,7 @@ offset_bottom = 130.0
 [node name="Button" type="Button" parent="VBoxContainer2" unique_id=341212583]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
-text = "Lanza huevas"
+text = "Lanza pilares"
 
 [connection signal="pressed" from="VBoxContainer/JUGAR" to="." method="_on_jugar_pressed"]
 [connection signal="pressed" from="VBoxContainer/Salir" to="." method="_on_salir_pressed"]
