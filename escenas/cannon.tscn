@@ -1,0 +1,145 @@
+[gd_scene format=3 uid="uid://b2b48mxigpxxp"]
+
+[sub_resource type="GDScript" id="GDScript_rrrr0"]
+script/source = "extends StaticBody3D
+
+#interact
+var player
+var can_interact: bool = false
+var is_mounted: bool = false
+@onready var cannon_cam: Camera3D = $cannonBarrel/Camera3D
+
+# --- Cámaras desde el inspector ---
+@export var c1: Camera3D
+@export var c2: Camera3D
+
+#move cannon
+var cam_sens: float = 0.003
+@onready var cannon: Node3D = $cannonBarrel
+@onready var player_stand_point: Node3D = $player_stand_point
+
+#shoot
+var cannon_ball_scene: PackedScene = load(\"res://escenas/cannon_ball.tscn\")
+@onready var shoot_point: Node3D = $cannonBarrel/shoot_point
+var ammo: int = 3  # <--- Cantidad máxima de balas
+
+
+func _input(event: InputEvent) -> void:
+	#montarse al cañon
+	if event.is_action_pressed(\"interact\") and can_interact:
+		mount()
+	#mover el cañon
+	if event is InputEventMouseMotion and is_mounted:
+		rotate_y(-event.relative.x * cam_sens)
+		cannon.rotate_x(-event.relative.y * cam_sens)
+		cannon.rotation.x = clampf(cannon.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+		player.global_position = Vector3(player_stand_point.global_position.x, player.global_position.y, player_stand_point.global_position.z)
+		player.global_rotation = player_stand_point.global_rotation
+	#disparar el cañon
+	if event.is_action_pressed(\"fire\") and is_mounted:
+		shoot()
+
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	if body.name == \"player\":
+		player = body
+		can_interact = true
+
+
+func _on_area_3d_body_exited(body: Node3D) -> void:
+	if body.name == \"player\":
+		can_interact = false
+
+
+func mount():
+	is_mounted = !is_mounted
+	if is_mounted:
+		player.velocidad = 0
+		cannon_cam.current = true
+	else:
+		player.velocidad = 200
+		cannon_cam.current = false
+
+
+func shoot():
+	# Si ya no quedan balas, no dispara
+	if ammo <= 0:
+		print(\"¡Sin munición!\")
+		return
+
+	ammo -= 1
+
+	# 1. Cambia a la Cámara 1 INMEDIATAMENTE
+	if c1: c1.current = true
+
+	# 2. Espera medio segundo antes de que salga la bala
+	await get_tree().create_timer(0.5).timeout
+
+	# 3. Sale el disparo
+	var ball = cannon_ball_scene.instantiate()
+	ball.direction = shoot_point.global_transform.basis
+	ball.global_position = shoot_point.global_position
+	get_parent().add_child(ball)
+
+	# 4. Pasa a la Cámara 2 después de 2 segundos de haber disparado
+	await get_tree().create_timer(1.0).timeout
+	if c2: c2.current = true
+
+	# 5. Vuelve al cañón tras 4 segundos
+	await get_tree().create_timer(4.0).timeout
+	if is_mounted: cannon_cam.current = true
+"
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_t7x1y"]
+height = 0.47961426
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_idqip"]
+size = Vector3(1.3513794, 1.2960205, 1.8010254)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_x2c7a"]
+top_radius = 0.40771484
+bottom_radius = 0.40771484
+height = 1.3127747
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t7x1y"]
+size = Vector3(2.0030212, 2.160614, 2.2253113)
+
+[node name="StaticBody3D" type="StaticBody3D" unique_id=1135498982]
+script = SubResource("GDScript_rrrr0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=245100243]
+transform = Transform3D(-0.0022359313, 0.9999975, 0, -0.9999975, -0.0022359313, 0, 0, 0, 1, 0, 0.7601929, 0)
+mesh = SubResource("CylinderMesh_t7x1y")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1170647361]
+transform = Transform3D(-0.0022359313, 0.9999975, 0, -0.9999975, -0.0022359313, 0, 0, 0, 1, -0.7844683, 0.7601929, 0)
+mesh = SubResource("CylinderMesh_t7x1y")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=171050167]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4465027, 0.95843625, -0.18811035)
+shape = SubResource("BoxShape3D_idqip")
+
+[node name="cannonBarrel" type="Node3D" parent="." unique_id=928548565]
+transform = Transform3D(1, 0, 0, 0, 0.98510396, 0.17195982, 0, -0.17195982, 0.98510396, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="cannonBarrel" unique_id=1871905344]
+transform = Transform3D(1, 0, 0, 0, 0.6675365, 0.7445771, 0, -0.7445771, 0.6675365, -0.42212576, 1.2463621, -0.25878015)
+mesh = SubResource("CylinderMesh_x2c7a")
+
+[node name="Camera3D" type="Camera3D" parent="cannonBarrel" unique_id=805786500]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42928886, 1.467001, 0.43989807)
+
+[node name="shoot_point" type="Node3D" parent="cannonBarrel" unique_id=90522675]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.44326955, -5.5629797, -1.9317667)
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1804939331]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1644767322]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.39942932, 1.044632, 0.07249451)
+shape = SubResource("BoxShape3D_t7x1y")
+
+[node name="player_stand_point" type="Node3D" parent="." unique_id=202697389]
+transform = Transform3D(128.85233, 0, 0, 0, 1, 0, 0, 0, 137.90956, -0.416451, 1.1322467, 0.4215411)
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
