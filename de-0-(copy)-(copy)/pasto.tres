@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://ksork7klxymj"]
+
+[ext_resource type="Texture2D" uid="uid://cx782i5a31lfs" path="res://green-grass-texture-close-up.jpg" id="1_pn3k7"]
+
+[resource]
+albedo_color = Color(0.41620138, 0.8528244, 0.39335495, 1)
+albedo_texture = ExtResource("1_pn3k7")
+uv1_offset = Vector3(-0.015, 0.315, -0.07)
+uv1_triplanar = true
+uv1_triplanar_sharpness = 0.24148378

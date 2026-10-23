@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://bo0y8a6t3q0ik"]
+
+[sub_resource type="GDScript" id="GDScript_yk8ln"]
+script/source = "extends StaticBody3D
+
+# INTERACTUAR
+var player: CharacterBody3D
+var interac_canon: bool = false
+var sob_canon: bool = false
+
+# NODOS Y SENSIBILIDAD
+var cam_sens: float = 0.003
+@onready var cam_can: Camera3D = $can/Camera3D
+@onready var cannon: Node3D = $can
+@onready var player_stand_point: Node3D = $puntodejugador
+
+# SABER CUANDO ESTA EN EL RANGO
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	if body is CharacterBody3D or body.name == \"player\":
+		player = body
+		interac_canon = true
+
+func _on_area_3d_body_exited(body: Node3D) -> void:
+	if body is CharacterBody3D or body.name == \"player\":
+		interac_canon = false
+
+# SUBIRSE Y MOVER EL CAÑON
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed(\"Interactuar\") and (interac_canon or sob_canon):
+		mount()
+
+	if event is InputEventMouseMotion and sob_canon:
+		rotate_y(-event.relative.x * cam_sens)
+		cannon.rotate_x(-event.relative.y * cam_sens)
+		
+		if player and player_stand_point:
+			player.global_position = Vector3(player_stand_point.global_position.x, player.global_position.y, player_stand_point.global_position.z)
+			player.global_rotation = player_stand_point.global_rotation
+
+func mount() -> void:
+	sob_canon = !sob_canon
+	if sob_canon:
+		if player:
+			player.speed = 0.0
+		cam_can.current = true
+	else:
+		if player:
+			player.speed = 5.0
+		cam_can.current = false
+"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6fohw"]
+size = Vector3(0.1586914, 0.16601563, 0.33642578)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_tt02m"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_p2ion"]
+height = 0.56359863
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x2c7a"]
+size = Vector3(1.0615234, 1, 0.5498047)
+
+[node name="StaticBody3D" type="StaticBody3D" unique_id=1850281456]
+script = SubResource("GDScript_yk8ln")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1914894318]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8887789, 0.84017724, -0.06225586)
+shape = SubResource("BoxShape3D_6fohw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=682837943]
+transform = Transform3D(0.18073887, 0, 0, 0, -0.0004857757, -0.1897359, 0, 0.032582875, -0.002828756, -1.8954797, 0.83519405, 0.03473836)
+mesh = SubResource("CylinderMesh_tt02m")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1177073544]
+transform = Transform3D(0.18073887, 0, 0, 0, -0.0004857757, -0.1897359, 0, 0.032582875, -0.002828756, -1.8954797, 0.82945246, -0.15695456)
+mesh = SubResource("CylinderMesh_tt02m")
+
+[node name="can" type="Node3D" parent="." unique_id=2144201978]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3167903, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="can" unique_id=1263303964]
+transform = Transform3D(0.05884524, 0.7066727, 0, -0.120351054, 0.34552523, 0, 0, 0, 0.16142224, -1.7762878, -0.37516904, -0.062514395)
+mesh = SubResource("CylinderMesh_p2ion")
+
+[node name="Camera3D" type="Camera3D" parent="can" unique_id=985051720]
+transform = Transform3D(0.06045178, 0, -0.99817115, 0, 1, 0, 0.99817115, 0, 0.06045178, -2.0441754, -0.36598802, -0.055523276)
+
+[node name="Area3D" type="Area3D" parent="." unique_id=70334787]
+transform = Transform3D(1, 0, 0, 0, 1.503367, 0, 0, 0, 5.659516, -1.773916, 0.82398033, -1.3882437)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=939334615]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.030761719, 0, 0.22509766)
+shape = SubResource("BoxShape3D_x2c7a")
+
+[node name="puntodejugador" type="Node3D" parent="." unique_id=357639663]
+transform = Transform3D(78.13377, 0, 0, 0, 56.99206, 0, 0, 0, 62.078335, -1.9789739, 0.8072172, -0.065357774)
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

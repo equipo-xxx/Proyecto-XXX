@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://b7yvqrq2wadfe"]
+
+[ext_resource type="Script" uid="uid://djxl13ixwhwkv" path="res://codigo/Perdiste.gd" id="1_greie"]
+[ext_resource type="Texture2D" uid="uid://kq7dlu5htb11" path="res://Imagenes/1.jpeg" id="2_6iysm"]
+
+[node name="Perdiste" type="Control" unique_id=1045720900]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_greie")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1900548228]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.51849383, 0.51105326, 0.89458406, 1)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=262531471]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_6iysm")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=368131167]
+layout_mode = 0
+offset_left = 424.0
+offset_top = 432.0
+offset_right = 744.0
+offset_bottom = 528.0
+
+[node name="Volver a jugar" type="Button" parent="VBoxContainer" unique_id=1349926006]
+layout_mode = 2
+theme_override_font_sizes/font_size = 37
+text = "Volver a Jugar"
+
+[node name="SALIR" type="Button" parent="VBoxContainer" unique_id=1371424641]
+layout_mode = 2
+theme_override_font_sizes/font_size = 37
+text = "SALIR"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=670111182]
+layout_mode = 0
+offset_left = 288.0
+offset_top = 128.0
+offset_right = 608.0
+offset_bottom = 194.0
+
+[node name="Button" type="Button" parent="VBoxContainer2" unique_id=776082973]
+layout_mode = 2
+theme_override_font_sizes/font_size = 53
+text = "Perdiste, el diablo gano 
+y mato a tu familia"
+
+[connection signal="pressed" from="VBoxContainer/Volver a jugar" to="." method="_on_volver_a_jugar_pressed"]
+[connection signal="pressed" from="VBoxContainer/SALIR" to="." method="_on_salir_pressed"]
