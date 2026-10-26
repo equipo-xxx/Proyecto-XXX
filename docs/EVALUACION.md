@@ -3,21 +3,20 @@
 
 > Documento **generado automáticamente** por la cátedra de Programación II (RepoSense + análisis de calidad POO/SOLID). **No editar a mano**: se regenera en cada evaluación.
 > Rama evaluada: `main`. Análisis **heurístico** (regex + métricas): es una criba para orientar la revisión, **no una nota**.
-> Generado: 2026-10-19.
+> Generado: 2026-10-26.
 
 ## 1. Veredicto
 
 | Aspecto | Resultado |
 |---|---|
-| Índice de calidad POO/SOLID | **3/100** |
-| Código (LOC) | 531 |
-| Archivos de código | 25 |
-| Clases (bien usadas) | 7 (5 OK) |
-| Código dentro de clases (%POO) | 11% |
-| Funciones fuera de clases | 51 |
-| Duplicación lógica | 56.5% |
-| Señales S/O/L/I/D | 1/1/0/0/1 |
-| Tope duro aplicado | `DUP>=50%` → índice ≤ 15 |
+| Índice de calidad POO/SOLID | **10/100** |
+| Código (LOC) | 210 |
+| Archivos de código | 12 |
+| Clases (bien usadas) | 12 (6 OK) |
+| Código dentro de clases (%POO) | 100% |
+| Funciones fuera de clases | 0 |
+| Duplicación lógica | 11.8% |
+| Señales S/O/L/I/D | 4/5/0/0/1 |
 
 > Este informe **describe** lo que el análisis midió con los criterios ya establecidos de la materia. No es una nota.
 
@@ -27,27 +26,27 @@ Criterios de `CRITERIOS-CALIDAD.md`. **Aprobar** se juega con el perfil `estanda
 
 | Semáforo | Resultado |
 |---|---|
-| Aprobar (`estandar`) | **no cumple** — 0/4 |
-| Destacar (`exigente`) | **no cumple** — 0/5 |
+| Aprobar (`estandar`) | **no cumple** — 2/4 |
+| Destacar (`exigente`) | **no cumple** — 2/5 |
 
 **Criterios para aprobar**
 
 | Criterio | Requisito | Tu resultado | Cumple |
 |---|---|---|---|
-| Código dentro de clases (%POO) | ≥ 85% | 11% | no |
-| Duplicación lógica | ≤ 10% | 56.5% | no |
-| Funciones fuera de clases | ≤ 1 | 51 | no |
-| Señales POO/SOLID críticas | ninguna | Baja cohesión (LCOM) | no |
+| Código dentro de clases (%POO) | ≥ 85% | 100% | sí |
+| Duplicación lógica | ≤ 10% | 11.8% | no |
+| Funciones fuera de clases | ≤ 1 | 0 | sí |
+| Señales POO/SOLID críticas | ninguna | Clase demasiado grande (SRP), Baja cohesión (LCOM), Acoplamiento alto (CBO) | no |
 
 **Criterios para destacar**
 
 | Criterio | Requisito | Tu resultado | Cumple |
 |---|---|---|---|
-| Código dentro de clases (%POO) | ≥ 95% | 11% | no |
-| Duplicación lógica | ≤ 5% | 56.5% | no |
-| Funciones fuera de clases | ≤ 0 | 51 | no |
-| Señales POO/SOLID críticas | ninguna | Baja cohesión (LCOM), Complejidad alta, Acoplamiento alto (CBO), Switch sobre tipos (OCP) | no |
-| Índice de calidad POO/SOLID | ≥ 60 | 3/100 | no |
+| Código dentro de clases (%POO) | ≥ 95% | 100% | sí |
+| Duplicación lógica | ≤ 5% | 11.8% | no |
+| Funciones fuera de clases | ≤ 1 | 0 | sí |
+| Señales POO/SOLID críticas | ninguna | Clase demasiado grande (SRP), Baja cohesión (LCOM), Complejidad alta, Acoplamiento alto (CBO), Switch sobre tipos (OCP) | no |
+| Índice de calidad POO/SOLID | ≥ 60 | 10/100 | no |
 
 ## 2. Autoría (RepoSense)
 
@@ -68,13 +67,13 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
 
 - **Qué mide:** Un resumen numérico (0-100) que combina la riqueza de clases bien usadas con la penalización por señales POO/SOLID y duplicación, y luego aplica topes duros.
 - **Por qué importa:** Ordena y prioriza la revisión: un índice bajo indica varias señales que conviene mirar juntas.
-- **Tu resultado:** índice **3/100**
+- **Tu resultado:** índice **10/100**
 
 ### 2. Duplicación lógica (DRY) (duplicacion) — con señales
 
 - **Qué mide:** Porcentaje de bloques de LÓGICA repetidos. Quedan fuera imports/includes, anotaciones, declaraciones de campos y comentarios/Javadoc/docstrings: esos bloques son boilerplate, no lógica.
 - **Por qué importa:** Cada copia de lógica se mantiene por separado: un arreglo hay que repetirlo y los defectos se multiplican.
-- **Tu resultado:** **56.5%** de duplicación lógica
+- **Tu resultado:** **11.8%** de duplicación lógica
 - **Para investigar la causa:**
     - ¿El trabajo se repartió por pantallas o archivos y se integró copiando y pegando bloques?
     - ¿Qué zonas del sistema cambiaron juntas más de una vez (señal de lógica compartida)?
@@ -84,29 +83,29 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
 
 - **Qué mide:** Qué porción del código vive dentro de clases (no de funciones sueltas).
 - **Por qué importa:** El diseño orientado a objetos es el eje de la materia: el comportamiento debería vivir como método de una clase.
-- **Tu resultado:** **10.9%** del código dentro de clases
+- **Tu resultado:** **100.0%** del código dentro de clases
 
-### 4. Funciones fuera de clases (sueltas) — con señales
+### 4. Funciones fuera de clases (sueltas) — sin señales
 
 - **Qué mide:** Funciones de nivel de módulo que no pertenecen a ninguna clase (en esta materia el comportamiento debe ser método de una clase).
 - **Por qué importa:** Son la forma más directa de código procedural en un proyecto que debería ser orientado a objetos.
-- **Tu resultado:** **51** función(es) fuera de clases
-- **Para investigar la causa:**
-    - ¿Esa función se dejó suelta por urgencia o por desconocer dónde ubicarla?
-    - ¿Qué clase debería ser responsable de ese comportamiento?
-    - ¿Había una convención sobre dónde poner cada cosa?
+- **Tu resultado:** **0** función(es) fuera de clases
 
-### 5. Clase demasiado grande (SRP) (god) — sin señales
+### 5. Clase demasiado grande (SRP) (god) — con señales
 
 - **Qué mide:** Clases con muchas líneas, métodos o campos a la vez.
 - **Por qué importa:** Una clase que hace de todo cambia por muchos motivos y cuesta entenderla y probarla.
-- **Tu resultado:** **0** clase(s) demasiado grande(s)
+- **Tu resultado:** **1** clase(s) demasiado grande(s)
+- **Para investigar la causa:**
+    - ¿La clase creció por acumulación de responsabilidades?
+    - ¿Qué partes de la clase se usan siempre juntas y cuáles no?
+    - ¿Se podría describir su responsabilidad en una sola frase?
 
 ### 6. Baja cohesión (LCOM) (cohesion) — con señales
 
 - **Qué mide:** Métodos y campos de una clase que casi no se relacionan entre sí.
 - **Por qué importa:** Una unidad que cambia por motivos distintos y comparte poca información suele esconder más de una responsabilidad.
-- **Tu resultado:** **1** clase(s) con baja cohesión
+- **Tu resultado:** **2** clase(s) con baja cohesión
 - **Para investigar la causa:**
     - ¿Qué métodos de la clase no comparten estado con el resto?
     - ¿Cambian por motivos distintos según la tarea?
@@ -116,7 +115,7 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
 
 - **Qué mide:** Complejidad ciclomática: cantidad de caminos posibles dentro de un método o función (condicionales, bucles, casos).
 - **Por qué importa:** Muchos caminos = difícil de seguir y de probar; suelen esconderse casos sin cubrir.
-- **Tu resultado:** **3** método(s)/función(es) con complejidad alta
+- **Tu resultado:** **1** método(s)/función(es) con complejidad alta
 - **Para investigar la causa:**
     - ¿Se agregaron condiciones a medida que aparecían casos nuevos?
     - ¿Se probaron todos los caminos o solo el caso principal?
@@ -132,27 +131,23 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
 
 - **Qué mide:** Cuánto depende una clase de otros tipos del proyecto.
 - **Por qué importa:** Piezas muy enlazadas hacen que un cambio se propague y que sea difícil reemplazar partes.
-- **Tu resultado:** **1** clase(s) muy acoplada(s)
+- **Tu resultado:** **5** clase(s) muy acoplada(s)
 - **Para investigar la causa:**
     - ¿La clase conoce detalles internos de muchas otras?
     - ¿Se puede cambiar una parte sin tocar las demás?
     - ¿Los colaboradores llegan como parámetros o se crean por dentro?
 
-### 10. Herencia profunda (DIT) (herencia) — con señales
+### 10. Herencia profunda (DIT) (herencia) — sin señales
 
 - **Qué mide:** Profundidad de la cadena de herencia de una clase.
 - **Por qué importa:** Jerarquías muy profundas vuelven difícil saber de dónde viene cada comportamiento.
-- **Tu resultado:** **1** clase(s) con herencia profunda
-- **Para investigar la causa:**
-    - ¿La jerarquía creció para reutilizar código o para modelar una relación real 'es-un'?
-    - ¿Qué comportamiento cambia entre niveles de la jerarquía?
-    - ¿Se evaluó la composición como alternativa?
+- **Tu resultado:** **0** clase(s) con herencia profunda
 
 ### 11. Switch sobre tipos (OCP) (ocp) — con señales
 
 - **Qué mide:** Chequeos repetidos de tipo (`instanceof`/`is`/`typeof`) que equivalen a un switch sobre el tipo.
 - **Por qué importa:** Cada tipo nuevo obliga a tocar varios lugares, en vez de extender con una implementación nueva.
-- **Tu resultado:** **1** clase(s) con switch sobre tipos
+- **Tu resultado:** **5** clase(s) con switch sobre tipos
 - **Para investigar la causa:**
     - ¿Qué operación se resuelve preguntando el tipo?
     - ¿Qué se toca cada vez que aparece un tipo o caso nuevo?
@@ -190,7 +185,7 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
 
 - **Qué mide:** Clases que exponen campos sin control de acceso.
 - **Por qué importa:** Expone el estado interno y hace que cualquier cambio dependa de quién lo modifica desde afuera.
-- **Tu resultado:** **1** clase(s) con campos públicos
+- **Tu resultado:** **4** clase(s) con campos públicos
 - **Para investigar la causa:**
     - ¿Se accede al campo desde otras clases para evitar un método?
     - ¿Qué reglas deberían respetarse al modificar ese estado?
@@ -206,36 +201,46 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
 
 Archivos donde el análisis encontró cada señal (sin número de línea, a propósito):
 
-**Baja cohesión (LCOM) (cohesion)** — 1 archivo(s):
-- `Escritorio/de-0/codigo/player.gd`
-
-**Complejidad alta (complejidad)** — 3 archivo(s):
-- `Escritorio/de-0/codigo/cannon.gd`
+**Clase demasiado grande (SRP) (god)** — 1 archivo(s):
 - `de-0-(copy)-(copy)/codigo/cannon.gd`
-- `de-0/codigo/cannon.gd`
 
-**Acoplamiento alto (CBO) (acoplamiento)** — 1 archivo(s):
-- `Escritorio/de-0/codigo/player.gd`
+**Baja cohesión (LCOM) (cohesion)** — 2 archivo(s):
+- `de-0-(copy)-(copy)/codigo/player.gd`
+- `de-0-(copy)-(copy)/player.gd`
 
-**Herencia profunda (DIT) (herencia)** — 1 archivo(s):
-- `cincodelseis/app/src/main/kotlin/org/example/CuadraticaV2.kt`
+**Complejidad alta (complejidad)** — 1 archivo(s):
+- `de-0-(copy)-(copy)/codigo/cannon.gd`
 
-**Switch sobre tipos (OCP) (ocp)** — 1 archivo(s):
-- `Escritorio/de-0/codigo/player.gd`
+**Acoplamiento alto (CBO) (acoplamiento)** — 5 archivo(s):
+- `de-0-(copy)-(copy)/areaa.gd`
+- `de-0-(copy)-(copy)/cannon.gd`
+- `de-0-(copy)-(copy)/codigo/cannon.gd`
+- `de-0-(copy)-(copy)/codigo/player.gd`
+- `de-0-(copy)-(copy)/player.gd`
 
-**Campos públicos (encapsulación) (encapsulacion)** — 1 archivo(s):
-- `Escritorio/de-0/codigo/player.gd`
+**Switch sobre tipos (OCP) (ocp)** — 5 archivo(s):
+- `de-0-(copy)-(copy)/areaa.gd`
+- `de-0-(copy)-(copy)/cannon.gd`
+- `de-0-(copy)-(copy)/codigo/cannon.gd`
+- `de-0-(copy)-(copy)/codigo/player.gd`
+- `de-0-(copy)-(copy)/player.gd`
+
+**Campos públicos (encapsulación) (encapsulacion)** — 4 archivo(s):
+- `de-0-(copy)-(copy)/cannon.gd`
+- `de-0-(copy)-(copy)/codigo/cannon.gd`
+- `de-0-(copy)-(copy)/codigo/player.gd`
+- `de-0-(copy)-(copy)/player.gd`
 
 ## 5. Evolución por commit
 
-Métricas calculadas sobre el estado de `main` en **cada commit** (7 commits con trabajo), del primero al último. La calidad usa el perfil `exigente`; el aporte de código lo mide RepoSense. El índice puede **bajar** al crecer el proyecto: se acumulan señales.
+Métricas calculadas sobre el estado de `main` en **cada commit** (11 commits con trabajo), del primero al último. La calidad usa el perfil `exigente`; el aporte de código lo mide RepoSense. El índice puede **bajar** al crecer el proyecto: se acumulan señales.
 
 ```mermaid
 xychart-beta
     title "Índice POO/SOLID a lo largo de los commits"
-    x-axis ["153eda6", "598e451", "47bf296", "83b7a05", "47ec20e", "dce852b", "f58b476"]
+    x-axis ["153eda6", "598e451", "47bf296", "83b7a05", "47ec20e", "dce852b", "f58b476", "e6084dc", "79e2099", "28d4bff", "74f1442"]
     y-axis "Índice" 0 --> 100
-    line [0, 0, 0, 0, 0, 3, 3]
+    line [0, 0, 0, 0, 0, 4, 4, 6, 10, 8, 10]
 ```
 
 | # | Fecha | Commit | Autor | LOC | Índice | %POO | Duplic. | Sueltas |
@@ -245,8 +250,12 @@ xychart-beta
 | 3 | 2026-08-28 | `47bf296` | dqmdz-etec | 0 | 0 | 0% | 0.0% | 0 |
 | 4 | 2026-08-28 | `83b7a05` | dqmdz-etec | 0 | 0 | 0% | 0.0% | 0 |
 | 5 | 2026-10-16 | `47ec20e` | Juli | 0 | 0 | 0% | 0.0% | 0 |
-| 6 | 2026-10-16 | `dce852b` | Juli | 531 | 3 | 11% | 56.5% | 51 |
-| 7 | 2026-10-19 | `f58b476` | mafcruz | 531 | 3 | 11% | 56.5% | 51 |
+| 6 | 2026-10-16 | `dce852b` | Juli | 531 | 4 | 83% | 55.2% | 1 |
+| 7 | 2026-10-19 | `f58b476` | mafcruz | 531 | 4 | 83% | 55.2% | 1 |
+| 8 | 2026-10-19 | `e6084dc` | Juli | 406 | 6 | 78% | 39.9% | 1 |
+| 9 | 2026-10-19 | `79e2099` | Juli | 311 | 10 | 72% | 8.3% | 1 |
+| 10 | 2026-10-19 | `28d4bff` | Juli | 199 | 8 | 100% | 12.5% | 0 |
+| 11 | 2026-10-23 | `74f1442` | mafcruz | 210 | 10 | 100% | 11.8% | 0 |
 
 ---
 _Informe generado por la cátedra. Los criterios y umbrales de medición corresponden al perfil `exigente` de `calidad.py`; el semáforo de aprobación, a `CRITERIOS-CALIDAD.md` (ver `README.md`). Ante dudas, revisá el archivo señalado._
