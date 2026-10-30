@@ -1,9 +1,0 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://cbhnmk0urhw82"]
-
-[ext_resource type="Texture2D" uid="uid://cd5y0pdvgsmmv" path="res://pista.jpg" id="1_o6b6t"]
-
-[resource]
-albedo_texture = ExtResource("1_o6b6t")
-uv1_scale = Vector3(1.995, 1.995, 1.995)
-uv1_offset = Vector3(0.425, -0.035, -0.055)
-uv1_triplanar_sharpness = 12.553345
