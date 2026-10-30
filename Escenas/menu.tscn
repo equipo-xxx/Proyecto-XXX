@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://csb4a4cyfs00j"]
 
-[ext_resource type="Script" uid="uid://dq062b41j2281" path="res://codigo/menu.gd" id="1_lti8b"]
+[ext_resource type="Script" uid="uid://ckjskikendueo" path="res://codigo/menu.gd" id="1_p25xy"]
 [ext_resource type="Texture2D" uid="uid://bq5d71ykmmw5k" path="res://Imagenes/10.jpeg" id="2_p25xy"]
 
 [node name="Menu" type="Control" unique_id=928463284]
@@ -10,7 +10,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_lti8b")
+script = ExtResource("1_p25xy")
+escena_destino = "uid://b0hoh66x2ggdq"
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1741788455]
 layout_mode = 1
@@ -33,25 +34,25 @@ texture = ExtResource("2_p25xy")
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1591736675]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.49800003
-anchor_top = 0.762
-anchor_right = 0.49800003
-anchor_bottom = 0.762
-offset_left = -160.69604
-offset_top = -77.776
-offset_right = 161.30396
-offset_bottom = 77.224
+anchor_left = 0.5
+anchor_top = 0.8880001
+anchor_right = 0.5
+anchor_bottom = 0.8880001
+offset_left = -163.0
+offset_top = -159.42407
+offset_right = 159.0
+offset_bottom = 26.575928
 theme_override_constants/separation = 40
 
-[node name="JUGAR" type="Button" parent="VBoxContainer" unique_id=1608028578]
+[node name="Jugar" type="Button" parent="VBoxContainer" unique_id=398225606]
 layout_mode = 2
-theme_override_font_sizes/font_size = 35
-text = "JUGAR"
+theme_override_font_sizes/font_size = 47
+text = "Jugar"
 
-[node name="Salir" type="Button" parent="VBoxContainer" unique_id=1587954950]
+[node name="Salir" type="Button" parent="VBoxContainer" unique_id=1148463140]
 layout_mode = 2
-theme_override_font_sizes/font_size = 35
-text = "SALIR"
+theme_override_font_sizes/font_size = 47
+text = "Salir"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=1352552045]
 layout_mode = 0
@@ -65,5 +66,5 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "Lanza pilares"
 
-[connection signal="pressed" from="VBoxContainer/JUGAR" to="." method="_on_jugar_pressed"]
+[connection signal="pressed" from="VBoxContainer/Jugar" to="." method="_on_jugar_pressed"]
 [connection signal="pressed" from="VBoxContainer/Salir" to="." method="_on_salir_pressed"]

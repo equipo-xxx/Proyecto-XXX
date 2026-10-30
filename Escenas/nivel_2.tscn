@@ -1,10 +1,14 @@
 [gd_scene format=3 uid="uid://b0hoh66x2ggdq"]
 
-[ext_resource type="Material" uid="uid://ksork7klxymj" path="res://Imagenes/pasto.tres" id="1_w7dep"]
+[ext_resource type="Texture2D" uid="uid://jo8kxrknoq82" path="res://Imagenes/11.jpeg" id="1_ftdqf"]
 [ext_resource type="Texture2D" uid="uid://w1h1vt6nhrvy" path="res://Imagenes/images.jpeg" id="2_g1bbh"]
 [ext_resource type="Texture2D" uid="uid://cab7uy8ytd6au" path="res://Imagenes/2.jpeg" id="3_ftdqf"]
 [ext_resource type="Texture2D" uid="uid://cjytlyvm5axu1" path="res://Imagenes/3.jpeg" id="4_mbn1r"]
 [ext_resource type="Texture2D" uid="uid://beskj565pfav" path="res://Imagenes/6.jpeg" id="5_g1bbh"]
+[ext_resource type="Texture2D" uid="uid://cp3gq1bjsshk" path="res://Imagenes/12.jpeg" id="5_mbn1r"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_60j1b"]
+albedo_texture = ExtResource("1_ftdqf")
 
 [sub_resource type="BoxMesh" id="BoxMesh_14nbx"]
 size = Vector3(6.9087524, 0.48095703, 9.345886)
@@ -93,6 +97,15 @@ size = Vector3(1, 2.9399414, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_7va1m"]
 size = Vector3(1, 2.9082642, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6c13k"]
+albedo_texture = ExtResource("5_mbn1r")
+
+[sub_resource type="BoxMesh" id="BoxMesh_7va1m"]
+size = Vector3(7.6688843, 0.49951172, 9.821793)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_or4a6"]
+size = Vector3(7.688843, 0.51657104, 9.851212)
+
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_mwlhg"]
 panorama = ExtResource("5_g1bbh")
 
@@ -109,7 +122,7 @@ sky = SubResource("Sky_ftdqf")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=744058013]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.016520381, -0.25952148, 0.2453003)
-material_override = ExtResource("1_w7dep")
+material_override = SubResource("StandardMaterial3D_60j1b")
 mesh = SubResource("BoxMesh_14nbx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1827860662]
@@ -217,8 +230,19 @@ mesh = SubResource("BoxMesh_4vd4n")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2261124, -0.81777954)
 shape = SubResource("BoxShape3D_7va1m")
 
+[node name="Piso cañon" type="StaticBody3D" parent="." unique_id=1340536608]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Piso cañon" unique_id=254526136]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.566408, 0.026666641, 0.30259502)
+material_override = SubResource("StandardMaterial3D_6c13k")
+mesh = SubResource("BoxMesh_7va1m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Piso cañon" unique_id=2108946852]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.572426, 0.0337677, 0.31238556)
+shape = SubResource("BoxShape3D_or4a6")
+
 [node name="Camera3D" type="Camera3D" parent="." unique_id=673049190]
-transform = Transform3D(0.039136864, 0, 0.99923384, 0, 1, 0, -0.99923384, 0, 0.039136864, 13.7014885, 2.2166138, 0.02622652)
+transform = Transform3D(0.027393635, 0, 0.9996247, 0, 1, 0, -0.9996247, 0, 0.027393635, 32.18309, 1.4147148, 0.043102264)
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="." unique_id=293600276]
 transform = Transform3D(0.63938415, -0.47102633, 0.6077188, 1.5938635e-08, 0.7903871, 0.6126077, -0.7688875, -0.3916916, 0.50536096, 4.428562, 10.437751, 4.66086)

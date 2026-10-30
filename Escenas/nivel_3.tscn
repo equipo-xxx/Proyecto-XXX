@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://w1h1vt6nhrvy" path="res://Imagenes/images.jpeg" id="2_clw8a"]
 [ext_resource type="Texture2D" uid="uid://cab7uy8ytd6au" path="res://Imagenes/2.jpeg" id="3_l2spy"]
 [ext_resource type="Texture2D" uid="uid://cjytlyvm5axu1" path="res://Imagenes/3.jpeg" id="4_2ruti"]
+[ext_resource type="Texture2D" uid="uid://cx782i5a31lfs" path="res://Imagenes/green-grass-texture-close-up.jpg" id="5_2ruti"]
 [ext_resource type="Texture2D" uid="uid://iy561801t0kn" path="res://Imagenes/7.jpeg" id="5_l2spy"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_5xel7"]
@@ -44,6 +45,15 @@ size = Vector3(1, 5.1610107, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2gy8x"]
 size = Vector3(1, 5.1610107, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bygme"]
+albedo_texture = ExtResource("5_2ruti")
+
+[sub_resource type="BoxMesh" id="BoxMesh_l2spy"]
+size = Vector3(7.6688843, 0.49951172, 9.821793)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2ruti"]
+size = Vector3(7.688843, 0.51657104, 9.813538)
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_8hjkj"]
 panorama = ExtResource("5_l2spy")
@@ -129,6 +139,17 @@ mesh = SubResource("BoxMesh_14nbx")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.107774734, 2.7872162, 0)
 shape = SubResource("BoxShape3D_2gy8x")
 
+[node name="Piso cañon" type="StaticBody3D" parent="." unique_id=1303770475]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Piso cañon" unique_id=1714017342]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7390003, 0.026666641, -36.751846)
+material_override = SubResource("StandardMaterial3D_bygme")
+mesh = SubResource("BoxMesh_l2spy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Piso cañon" unique_id=873916832]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75258636, 0.033737183, -36.79373)
+shape = SubResource("BoxShape3D_2ruti")
+
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1479545937]
 transform = Transform3D(-0.720352, 0, -0.6936087, 0, 1, 0, 0.6936087, 0, -0.720352, -5.8409443, 3.0789185, -3.1214836)
 spot_range = 11.082689
@@ -143,6 +164,6 @@ spot_angle = 32.295193
 environment = SubResource("Environment_mwlhg")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=625463056]
-transform = Transform3D(-0.9987678, 0, -0.049628004, 0, 1, 0, 0.049628004, 0, -0.9987678, 0.480896, 1.6089067, -15.88625)
+transform = Transform3D(-0.9987678, 0, -0.049628004, 0, 1, 0, 0.049628004, 0, -0.9987678, 0.480896, 1.6089067, -42.46407)
 
 [connection signal="body_entered" from="columna medioizquierda" to="." method="_on_columna_medioizquierda_body_entered"]

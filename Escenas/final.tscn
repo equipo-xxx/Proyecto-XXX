@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://dqlcydt8tu47s"]
+[gd_scene format=3 uid="uid://bk6ct6xs4gjik"]
 
-[ext_resource type="Script" uid="uid://ca1bqdwa55ta8" path="res://codigo/final.gd" id="1_h0aww"]
+[ext_resource type="Script" uid="uid://b0m8jtnoffbqb" path="res://codigo/final.gd" id="1_5at5q"]
 [ext_resource type="Texture2D" uid="uid://dwp1p8wpf2w8o" path="res://Imagenes/9.jpeg" id="1_teg0c"]
 
 [node name="final" type="Control" unique_id=71895270]
@@ -10,6 +10,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_5at5q")
+escena_destino = "uid://csb4a4cyfs00j"
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=776287273]
 layout_mode = 1
@@ -40,12 +42,11 @@ offset_bottom = 528.0
 layout_mode = 2
 theme_override_font_sizes/font_size = 43
 text = "SALIR"
-script = ExtResource("1_h0aww")
 
-[node name="Volver a jugar" type="Button" parent="VBoxContainer" unique_id=697265278]
+[node name="volver a jugar" type="Button" parent="VBoxContainer" unique_id=1034881927]
 layout_mode = 2
-theme_override_font_sizes/font_size = 35
-text = "Volver a jugar"
+theme_override_font_sizes/font_size = 45
+text = "Volver a Jugar"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=2085410527]
 layout_mode = 0
@@ -60,5 +61,5 @@ theme_override_font_sizes/font_size = 53
 text = "FELICIDADES GANASTE, 
 VENCISTE AL DIABLO"
 
-[connection signal="pressed" from="VBoxContainer/salir2" to="VBoxContainer/salir2" method="_on_pressed"]
-[connection signal="pressed" from="VBoxContainer/Volver a jugar" to="VBoxContainer/salir2" method="_on_volver_a_jugar_pressed"]
+[connection signal="pressed" from="VBoxContainer/salir2" to="." method="_on_salir_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/volver a jugar" to="." method="_on_volver_a_jugar_pressed"]
