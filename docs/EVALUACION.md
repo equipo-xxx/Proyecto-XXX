@@ -3,7 +3,7 @@
 
 > Documento **generado automáticamente** por la cátedra de Programación II (RepoSense + análisis de calidad POO/SOLID). **No editar a mano**: se regenera en cada evaluación.
 > Rama evaluada: `main`. Análisis **heurístico** (regex + métricas): es una criba para orientar la revisión, **no una nota**.
-> Generado: 2026-10-30.
+> Generado: 2026-11-01.
 
 ## 1. Veredicto
 
@@ -48,6 +48,14 @@ Criterios de `CRITERIOS-CALIDAD.md`. **Aprobar** se juega con el perfil `estanda
 | Señales POO/SOLID críticas | ninguna | ninguna | sí |
 | Índice de calidad POO/SOLID | ≥ 60 | 73/100 | sí |
 
+### Cómo se calcula el %POO (y por qué no sube solo)
+
+`%POO = líneas de lógica dentro de clases ÷ líneas de lógica totales`.
+
+Se cuentan las líneas de **lógica y campos**; no cuentan `package`/`import`/`using`/anotaciones ni comentarios, Javadoc o docstrings. Es una **proporción**: si agregás código nuevo dentro de una clase, el numerador y el denominador crecen juntos y el porcentaje casi no cambia.
+
+Sube cuando el código que hoy está **fuera** de clases pasa a ser método de una clase (o desaparece): funciones sueltas, `main`, constantes de módulo, scripts y lógica de archivos sueltos. También importa que ese trabajo esté **integrado en `main`**: la evaluación siempre mide `main`, así que lo que sigue en otra rama no se refleja todavía.
+
 ## 2. Autoría (RepoSense)
 
 | Autor | Commits | Código (LOC) | Tests (LOC) | Docs (LOC) | Días activos | % del código |
@@ -59,7 +67,13 @@ Criterios de `CRITERIOS-CALIDAD.md`. **Aprobar** se juega con el perfil `estanda
 
 > **Reparto del trabajo:** htrillo-code concentra el 86% de las líneas de código. Un reparto muy desigual suele indicar que la integración no fue realmente en equipo; vale la pena reconstruir cómo se coordinó.
 
-## 3. Aspectos evaluados
+## 3. Fallas detectadas
+
+Reúne lo que el análisis marcó y lo que todavía falta para cada semáforo. Cuando la señal se puede asociar a archivos, se indican para orientar la revisión. No es una nota.
+
+_No se detectaron fallas: no hay criterios pendientes ni señales en el análisis._
+
+## 4. Aspectos evaluados
 
 Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuando el análisis reportó una señal, se agregan preguntas para **investigar la causa** (no hay recetas: entender el porqué es parte de la evaluación).
 
@@ -77,9 +91,10 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
 
 ### 3. Adopción de POO (% de código en clases) (poo) — sin señales
 
-- **Qué mide:** Qué porción del código vive dentro de clases (no de funciones sueltas).
+- **Qué mide:** Proporción de las **líneas de lógica** que viven dentro de una clase. Quedan fuera `package`/`import`/`using`/anotaciones y comentarios/Javadoc/docstrings: no son código que pueda estar dentro de una clase y, si contaran, el porcentaje quedaría topado por el boilerplate de cada archivo.
 - **Por qué importa:** El diseño orientado a objetos es el eje de la materia: el comportamiento debería vivir como método de una clase.
 - **Tu resultado:** **100.0%** del código dentro de clases
+- **Cómo leerlo:** Es una **proporción**, no un acumulado: agregar código dentro de una clase no la sube por sí solo (numerador y denominador crecen juntos). Sube cuando el código que está **fuera** de clases (funciones sueltas, `main`, constantes de módulo, scripts) pasa a ser método de una clase o deja de existir. La medición se hace sobre `main`: el trabajo que todavía vive en otra rama no se refleja hasta que se integra.
 
 ### 4. Funciones fuera de clases (sueltas) — sin señales
 
@@ -165,10 +180,6 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
 - **Por qué importa:** Es comportamiento procedural disfrazado de clase: no se instancia ni participa del modelo de objetos.
 - **Tu resultado:** **0** clase(s) solo con métodos estáticos
 
-## 4. Anexo: dónde mirar
-
-_No hay señales con archivos asociados._
-
 ## 5. Evolución por commit
 
 Métricas calculadas sobre el estado de `main` en **cada commit** (19 commits con trabajo), del primero al último. La calidad usa el perfil `exigente`; el aporte de código lo mide RepoSense. El índice puede **bajar** al crecer el proyecto: se acumulan señales.
@@ -188,10 +199,10 @@ xychart-beta
 | 3 | 2026-08-28 | `47bf296` | dqmdz-etec | 0 | 0 | 0% | 0.0% | 0 |
 | 4 | 2026-08-28 | `83b7a05` | dqmdz-etec | 0 | 0 | 0% | 0.0% | 0 |
 | 5 | 2026-10-16 | `47ec20e` | Juli | 0 | 0 | 0% | 0.0% | 0 |
-| 6 | 2026-10-16 | `dce852b` | Juli | 531 | 7 | 83% | 55.2% | 1 |
-| 7 | 2026-10-19 | `f58b476` | mafcruz | 531 | 7 | 83% | 55.2% | 1 |
-| 8 | 2026-10-19 | `e6084dc` | Juli | 406 | 9 | 78% | 39.9% | 1 |
-| 9 | 2026-10-19 | `79e2099` | Juli | 311 | 17 | 72% | 8.3% | 1 |
+| 6 | 2026-10-16 | `dce852b` | Juli | 531 | 7 | 87% | 55.2% | 1 |
+| 7 | 2026-10-19 | `f58b476` | mafcruz | 531 | 7 | 87% | 55.2% | 1 |
+| 8 | 2026-10-19 | `e6084dc` | Juli | 406 | 9 | 83% | 39.9% | 1 |
+| 9 | 2026-10-19 | `79e2099` | Juli | 311 | 17 | 77% | 8.3% | 1 |
 | 10 | 2026-10-19 | `28d4bff` | Juli | 199 | 14 | 100% | 12.5% | 0 |
 | 11 | 2026-10-23 | `74f1442` | mafcruz | 210 | 16 | 100% | 11.8% | 0 |
 | 12 | 2026-10-30 | `8907cd8` | Juli | 21 | 73 | 100% | 0.0% | 0 |
