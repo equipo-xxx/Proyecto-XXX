@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2wir447yemdr"
-path.s3tc="res://.godot/imported/GMANVIRUSAPPEARANCE.webp-93efe87256534fffa35daca8db2535fd.s3tc.ctex"
+uid="uid://cvtk50rlrmkg8"
+path.s3tc="res://.godot/imported/13.jpeg-f6cfa4b2b51e33daa9d2aca0ba15a678.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Imagenes/GMANVIRUSAPPEARANCE.webp"
-dest_files=["res://.godot/imported/GMANVIRUSAPPEARANCE.webp-93efe87256534fffa35daca8db2535fd.s3tc.ctex"]
+source_file="res://Imagenes/13.jpeg"
+dest_files=["res://.godot/imported/13.jpeg-f6cfa4b2b51e33daa9d2aca0ba15a678.s3tc.ctex"]
 
 [params]
 
