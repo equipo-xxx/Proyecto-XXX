@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://21u1bimtm8iv"]
 
 [ext_resource type="Script" uid="uid://c0v6vo8thu75v" path="res://codigo/nivel_1_superado.gd" id="1_i7dwp"]
-[ext_resource type="Texture2D" uid="uid://beskj565pfav" path="res://Imagenes/6.jpeg" id="2_gsyee"]
+[ext_resource type="Texture2D" uid="uid://deqqxq0g4ej8r" path="res://Imagenes/6.jpeg" id="2_gsyee"]
 
 [node name="nivel 1 superado" type="Control" unique_id=469385009]
 layout_mode = 3
