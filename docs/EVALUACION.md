@@ -3,16 +3,16 @@
 
 > Documento **generado automáticamente** por la cátedra de Programación II (RepoSense + análisis de calidad POO/SOLID). **No editar a mano**: se regenera en cada evaluación.
 > Rama evaluada: `main`. Análisis **heurístico** (regex + métricas): es una criba para orientar la revisión, **no una nota**.
-> Generado: 2026-11-01.
+> Generado: 2026-11-02.
 
 ## 1. Veredicto
 
 | Aspecto | Resultado |
 |---|---|
-| Índice de calidad POO/SOLID | **73/100** |
-| Código (LOC) | 36 |
-| Archivos de código | 5 |
-| Clases (bien usadas) | 5 (5 OK) |
+| Índice de calidad POO/SOLID | **77/100** |
+| Código (LOC) | 42 |
+| Archivos de código | 6 |
+| Clases (bien usadas) | 6 (6 OK) |
 | Código dentro de clases (%POO) | 100% |
 | Funciones fuera de clases | 0 |
 | Duplicación lógica | 0.0% |
@@ -46,7 +46,7 @@ Criterios de `CRITERIOS-CALIDAD.md`. **Aprobar** se juega con el perfil `estanda
 | Duplicación lógica | ≤ 5% | 0.0% | sí |
 | Funciones fuera de clases | ≤ 1 | 0 | sí |
 | Señales POO/SOLID críticas | ninguna | ninguna | sí |
-| Índice de calidad POO/SOLID | ≥ 60 | 73/100 | sí |
+| Índice de calidad POO/SOLID | ≥ 60 | 77/100 | sí |
 
 ### Cómo se calcula el %POO (y por qué no sube solo)
 
@@ -81,7 +81,7 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
 
 - **Qué mide:** Un resumen numérico (0-100) que combina la riqueza de clases bien usadas con la penalización por señales POO/SOLID y duplicación, y luego aplica topes duros.
 - **Por qué importa:** Ordena y prioriza la revisión: un índice bajo indica varias señales que conviene mirar juntas.
-- **Tu resultado:** índice **73/100**
+- **Tu resultado:** índice **77/100**
 
 ### 2. Duplicación lógica (DRY) (duplicacion) — sin señales
 
@@ -182,14 +182,14 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
 
 ## 5. Evolución por commit
 
-Métricas calculadas sobre el estado de `main` en **cada commit** (19 commits con trabajo), del primero al último. La calidad usa el perfil `exigente`; el aporte de código lo mide RepoSense. El índice puede **bajar** al crecer el proyecto: se acumulan señales.
+Métricas calculadas sobre el estado de `main` en **cada commit** (20 commits con trabajo), del primero al último. La calidad usa el perfil `exigente`; el aporte de código lo mide RepoSense. El índice puede **bajar** al crecer el proyecto: se acumulan señales.
 
 ```mermaid
 xychart-beta
     title "Índice POO/SOLID a lo largo de los commits"
-    x-axis ["153eda6", "598e451", "47bf296", "83b7a05", "47ec20e", "dce852b", "f58b476", "e6084dc", "79e2099", "28d4bff", "74f1442", "8907cd8", "dc49145", "bdef3ba", "80b679c", "48f7312", "48cd65b", "ec7c7f6", "cac2e03"]
+    x-axis ["153eda6", "598e451", "47bf296", "83b7a05", "47ec20e", "dce852b", "f58b476", "e6084dc", "79e2099", "28d4bff", "74f1442", "8907cd8", "dc49145", "bdef3ba", "80b679c", "48f7312", "48cd65b", "ec7c7f6", "cac2e03", "073a603"]
     y-axis "Índice" 0 --> 100
-    line [0, 0, 0, 0, 0, 7, 7, 9, 17, 14, 16, 73, 73, 73, 73, 0, 0, 0, 73]
+    line [0, 0, 0, 0, 0, 7, 7, 9, 17, 14, 16, 73, 73, 73, 73, 0, 0, 0, 73, 77]
 ```
 
 | # | Fecha | Commit | Autor | LOC | Índice | %POO | Duplic. | Sueltas |
@@ -213,6 +213,7 @@ xychart-beta
 | 17 | 2026-10-30 | `48cd65b` | mafcruz | 0 | 0 | 0% | 0.0% | 0 |
 | 18 | 2026-10-30 | `ec7c7f6` | dqmdz-etec | 0 | 0 | 0% | 0.0% | 0 |
 | 19 | 2026-10-30 | `cac2e03` | mafcruz | 36 | 73 | 100% | 0.0% | 0 |
+| 20 | 2026-11-02 | `073a603` | mafcruz | 42 | 77 | 100% | 0.0% | 0 |
 
 ---
 _Informe generado por la cátedra. Los criterios y umbrales de medición corresponden al perfil `exigente` de `calidad.py`; el semáforo de aprobación, a `CRITERIOS-CALIDAD.md` (ver `README.md`). Ante dudas, revisá el archivo señalado._
