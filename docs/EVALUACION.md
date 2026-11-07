@@ -252,13 +252,13 @@ xychart-beta
 | 2026-10-23 | **Sí** | Proyecto-XXX | 1 / 1 |
 | 2026-10-26 | No | sin actividad | 0 / 0 |
 
-#### Aportes fuera del calendario de clases
+#### Aportes fuera del calendario de clases — htrillo-code
 
-**1 fecha fuera del calendario** · 1 commit · 0 merges
+**htrillo-code — 1 fecha fuera del calendario** · 1 commit · 0 merges
 
-| Fecha | Repositorios | Commits / merges |
-|---|---|--:|
-| 2026-10-30 | Proyecto-XXX | 1 / 0 |
+| Alumno | Fecha | Repositorios | Commits / merges |
+|---|---|---|---|
+| htrillo-code (`htrillo-code`) | 2026-10-30 | Proyecto-XXX | 1 / 0 |
 
 ### Mateo Cruz
 
@@ -284,14 +284,14 @@ xychart-beta
 | 2026-10-23 | **Sí** | Proyecto-XXX | 1 / 1 |
 | 2026-10-26 | No | sin actividad | 0 / 0 |
 
-#### Aportes fuera del calendario de clases
+#### Aportes fuera del calendario de clases — Mateo Cruz
 
-**2 fechas fuera del calendario** · 15 commits · 4 merges
+**Mateo Cruz — 2 fechas fuera del calendario** · 15 commits · 4 merges
 
-| Fecha | Repositorios | Commits / merges |
-|---|---|--:|
-| 2026-10-30 | Proyecto-XXX | 14 / 3 |
-| 2026-11-02 | Proyecto-XXX | 1 / 1 |
+| Alumno | Fecha | Repositorios | Commits / merges |
+|---|---|---|---|
+| Mateo Cruz (`MateoCruz`) | 2026-10-30 | Proyecto-XXX | 14 / 3 |
+| Mateo Cruz (`MateoCruz`) | 2026-11-02 | Proyecto-XXX | 1 / 1 |
 
 <!-- actividad-clases:fin -->
 
