@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://caadoc3ni5phs"]
+
+[ext_resource type="Script" uid="uid://csoe15cbcp87d" path="res://escenas/nivelsuperado_3.gd" id="1_v3iri"]
+[ext_resource type="Texture2D" uid="uid://ns1rqufobjq" path="res://Imagenes/7.jpeg" id="2_i4xmq"]
+[ext_resource type="PackedScene" uid="uid://21u1bimtm8iv" path="res://escenas/nivel_1_superado.tscn" id="2_onfw8"]
+[ext_resource type="Texture2D" uid="uid://8ir354pyr122" path="res://Imagenes/14.jpeg" id="4_v3iri"]
+
+[node name="Control" type="Control" unique_id=1971020955]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v3iri")
+escena_destino = "uid://3jen8800sxng"
+
+[node name="nivel 3 superado" parent="." unique_id=469385009 instance=ExtResource("2_onfw8")]
+layout_mode = 1
+escena_destino = "uid://3jen8800sxng"
+
+[node name="7" type="Sprite2D" parent="nivel 3 superado/VBoxContainer" parent_id_path=PackedInt32Array(469385009, 1608343321) index="0" unique_id=1270886670]
+position = Vector2(155.5, -115.5)
+scale = Vector2(1.869906, 1.9628571)
+texture = ExtResource("2_i4xmq")
+
+[node name="6" parent="nivel 3 superado/VBoxContainer" parent_id_path=PackedInt32Array(469385009, 1608343321) index="1" unique_id=954736962]
+position = Vector2(167.99997, -106.99999)
+scale = Vector2(3.3450565, 1.5357423)
+texture = ExtResource("4_v3iri")
+
+[node name="Nivel 2" parent="nivel 3 superado/VBoxContainer" parent_id_path=PackedInt32Array(469385009, 1608343321) index="2" unique_id=451375705]
+text = "Nivel 3"
+
+[node name="Button" parent="nivel 3 superado/VBoxContainer2" parent_id_path=PackedInt32Array(469385009, 1361922455) index="0" unique_id=108325771]
+text = "La prueba final llego....."
+
+[editable path="nivel 3 superado"]

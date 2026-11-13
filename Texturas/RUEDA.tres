@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://jfi3l0v4hx6p"]
+
+[ext_resource type="Texture2D" uid="uid://iwbo3dvxp21h" path="res://Texturas/nube-blanca-cielo-azul_1203-9362.jpg" id="1_xl2v8"]
+
+[resource]
+albedo_texture = ExtResource("1_xl2v8")
+uv1_offset = Vector3(-0.015, 0.315, -0.07)
+uv1_triplanar = true
+uv1_triplanar_sharpness = 0.24148378

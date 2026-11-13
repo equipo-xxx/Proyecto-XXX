@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://k7aoggg482l2"]
+
+[ext_resource type="PackedScene" uid="uid://cysowet5ykqjk" path="res://escenas/player.tscn" id="1_58mta"]
+[ext_resource type="PackedScene" uid="uid://buyw328nxybm1" path="res://escenas/pared.tscn" id="3_xsxho"]
+[ext_resource type="PackedScene" uid="uid://cdplvbhcnorro" path="res://escenas/areaa.tscn" id="4_3f1ia"]
+[ext_resource type="PackedScene" uid="uid://b2b48mxigpxxp" path="res://escenas/cannon.tscn" id="4_5rmny"]
+[ext_resource type="Material" uid="uid://ksork7klxymj" path="res://Texturas/pasto.tres" id="5_jhysc"]
+[ext_resource type="Texture2D" uid="uid://iwbo3dvxp21h" path="res://Texturas/nube-blanca-cielo-azul_1203-9362.jpg" id="6_iop0s"]
+[ext_resource type="PackedScene" uid="uid://dwxmcabob3p4r" path="res://escenas/dios.tscn" id="8_5rmny"]
+[ext_resource type="Texture2D" uid="uid://v7u4rmrgwve4" path="res://Imagenes/Cartel__controles-removebg-preview.png" id="9_5rmny"]
+[ext_resource type="PackedScene" uid="uid://bqslyd1xl2c0v" path="res://escenas/17segundos.tscn" id="10_nv5wr"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_x2c7a"]
+size = Vector3(10.721222, 1, 16.556152)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t7x1y"]
+size = Vector3(7.557495, 1, 2.4257813)
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_j7xnp"]
+panorama = ExtResource("6_iop0s")
+
+[sub_resource type="Sky" id="Sky_kkt6c"]
+sky_material = SubResource("PanoramaSkyMaterial_j7xnp")
+
+[sub_resource type="Environment" id="Environment_esbpa"]
+background_mode = 2
+sky = SubResource("Sky_kkt6c")
+
+[node name="tutorial" type="Node3D" unique_id=108287031]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+
+[node name="player" parent="." unique_id=1576967727 instance=ExtResource("1_58mta")]
+transform = Transform3D(0.08252245, 0, 0.9965892, 0, 1, 0, -0.9965892, 0, 0.08252245, 19.595127, 4.8285255, 2.5871274)
+
+[node name="StaticBody3D" parent="." unique_id=723678759 instance=ExtResource("3_xsxho")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4064417, 6.224367, -35.05218)
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="." unique_id=295827995]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1491402, 3.8990316, -19.716465)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2" unique_id=1411967657]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5111388, 0, -15.204198)
+mesh = SubResource("BoxMesh_x2c7a")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2" unique_id=1928325318]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.46099854, 0, -15.2017565)
+shape = SubResource("BoxShape3D_t7x1y")
+
+[node name="Node3D" parent="." unique_id=37766043 instance=ExtResource("4_3f1ia")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.18756151, 0.3553257, -42.030243)
+
+[node name="camera_1" type="Camera3D" parent="." unique_id=1263421216]
+transform = Transform3D(-0.8815616, 0, 0.4720691, 0, 1, 0, -0.4720691, 0, -0.8815616, 6.026, 5.4308796, -9.048029)
+
+[node name="camera_2" type="Camera3D" parent="." unique_id=1107459450]
+transform = Transform3D(-0.082852684, 0.013652207, 0.9964683, 0.019412475, 0.9997386, -0.012082935, -0.9963727, 0.018342813, -0.08309605, 19.443356, 8.487513, -19.214691)
+
+[node name="PAsto" type="MeshInstance3D" parent="." unique_id=847983783]
+transform = Transform3D(1.5536349, 0, 0, 0, 1, 0, 0, 0, 1.0875401, -0.16326284, 3.4152164, -2.6293058)
+material_override = ExtResource("5_jhysc")
+mesh = SubResource("BoxMesh_x2c7a")
+
+[node name="temp" parent="." unique_id=928463284]
+visible = false
+offset_left = -236.0
+offset_top = -113.0
+offset_right = -236.0
+offset_bottom = -113.0
+
+[node name="PAsto2" type="MeshInstance3D" parent="." unique_id=2061308581]
+transform = Transform3D(0.670335, 0, 0, 0, 1, 0, 0, 0, 0.49690714, 19.14805, 3.2602196, 2.0300417)
+material_override = ExtResource("5_jhysc")
+mesh = SubResource("BoxMesh_x2c7a")
+
+[node name="Node3D2" parent="." unique_id=696334273 instance=ExtResource("10_nv5wr")]
+transform = Transform3D(1.6041318, 0, 0, 0, 1, 0, 0, 0, 1.8538208, 7.775198, 0.806654, -4.372751)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=287894486]
+environment = SubResource("Environment_esbpa")
+
+[node name="dios" parent="." unique_id=153427568 instance=ExtResource("8_5rmny")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, -222.433, -51.10938)
+
+[node name="StaticBody3D3" parent="." unique_id=1135498982 node_paths=PackedStringArray("c1", "c2") instance=ExtResource("4_5rmny")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8865998, 3.5463676, -3.2695384)
+visible = false
+c1 = NodePath("../camera_1")
+c2 = NodePath("../camera_2")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=633294439]
+transform = Transform3D(0.45241353, 0, 0.44337282, 0, 0.6111727, 0, -0.3520783, 0, 0.56972504, 16.818384, 4.0931873, -1.364521)
+billboard = 1
+texture = ExtResource("9_5rmny")

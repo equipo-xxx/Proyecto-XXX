@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://s0oxq2iwx0xc"]
+
+[ext_resource type="PackedScene" uid="uid://21u1bimtm8iv" path="res://escenas/nivel_1_superado.tscn" id="1_one3b"]
+[ext_resource type="Texture2D" uid="uid://ns1rqufobjq" path="res://Imagenes/7.jpeg" id="2_y533o"]
+
+[node name="Control" type="Control" unique_id=1681766246]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="nivel 1 superado" parent="." unique_id=469385009 instance=ExtResource("1_one3b")]
+layout_mode = 1
+escena_destino = "uid://bg2paytwjtw4h"
+
+[node name="7" type="Sprite2D" parent="nivel 1 superado/VBoxContainer" parent_id_path=PackedInt32Array(469385009, 1608343321) index="1" unique_id=201991471]
+position = Vector2(155.5, -115.5)
+scale = Vector2(1.869906, 1.9628571)
+texture = ExtResource("2_y533o")
+
+[node name="Nivel 2" parent="nivel 1 superado/VBoxContainer" parent_id_path=PackedInt32Array(469385009, 1608343321) index="2" unique_id=451375705]
+text = "Nivel 2"
+
+[node name="Button" parent="nivel 1 superado/VBoxContainer2" parent_id_path=PackedInt32Array(469385009, 1361922455) index="0" unique_id=108325771]
+text = "Ya llevas 2/3 pilares estas muy cerca"
+
+[editable path="nivel 1 superado"]

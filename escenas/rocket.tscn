@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://q58ttutgkhfl"]
+
+[ext_resource type="Script" uid="uid://cbo5acqmdho3o" path="res://rocket.gd" id="1_00b23"]
+[ext_resource type="ArrayMesh" uid="uid://co432mq1bvw20" path="res://MODELOS/angel/Rpg 7.obj" id="2_eq6kn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i506y"]
+size = Vector3(1, 1.8432617, 11.822998)
+
+[node name="Node3D" type="Area3D" unique_id=707447268]
+script = ExtResource("1_00b23")
+
+[node name="Rpg7" type="MeshInstance3D" parent="." unique_id=697106136]
+transform = Transform3D(0.04286187, 0, -0.999081, 0, 1, 0, 0.999081, 0, 0.04286187, -12.360281, 1.3627653, -32.672314)
+mesh = ExtResource("2_eq6kn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=484258184]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.316608, 1.3353591, -33.92092)
+shape = SubResource("BoxShape3D_i506y")

@@ -1,0 +1,295 @@
+[gd_scene format=3 uid="uid://dwxmcabob3p4r"]
+
+[ext_resource type="PackedScene" uid="uid://ci2it6lr3i3s3" path="res://escenas/c91a83ef237948fea3f49a9bfb12c2f0.fbx" id="1_oax2q"]
+[ext_resource type="PackedScene" uid="uid://1ruawipml65y" path="res://MODELOS/angel/Thrones_Angel_Final.fbx" id="3_jpk4n"]
+[ext_resource type="Script" uid="uid://kunaijrg6ca8" path="res://codigo/label_3d.gd" id="4_ojgl5"]
+[ext_resource type="PackedScene" uid="uid://b2b48mxigpxxp" path="res://escenas/cannon.tscn" id="4_rycwp"]
+
+[sub_resource type="Animation" id="Animation_jpk4n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(33.1, 452.625, 2.561)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.2268928, 0, 1.6458455)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(100.00001, 100, 100.000015)]
+}
+
+[sub_resource type="Animation" id="Animation_jprwr"]
+resource_name = "god"
+length = 36.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.8, 8.702385, 9.682214, 34.088726),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(33.1, 452.625, 2.561), Vector3(400, 452.625, 2.561), Vector3(400, 452.625, 2.561), Vector3(246.48, 452.625, 2.561), Vector3(246.48001, -40.732178, 2.561)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.8, 8.37416, 8.702385, 9.682214),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.2268928, 0, 1.6458455), Vector3(-0.21503115, 0.07296789, 1.3158019), Vector3(-0.2268928, 0, 1.6458455), Vector3(-0.2268928, 0, 1.6458455), Vector3(-0.2268928, 0, 1.6458455)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(9.682214),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(100.00001, 100, 100.000015)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mpdxq"]
+_data = {
+&"RESET": SubResource("Animation_jpk4n"),
+&"god": SubResource("Animation_jprwr")
+}
+
+[sub_resource type="Animation" id="Animation_mpdxq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-483.4906, 227.94556, -39.041046)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(700, 700, 700)]
+}
+
+[sub_resource type="Animation" id="Animation_qpt3k"]
+resource_name = "new_animation"
+length = 50.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.799327, 8.373691, 35.74357, 36.084763),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-483.4906, 227.94556, -39.041046), Vector3(-199.2505, 355.988, -53.164543), Vector3(-250.78964, 203.86075, -56.573673), Vector3(-250.79, 240, -56.574), Vector3(-250.79, -843.8991, -56.574)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.799327, 8.373691),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.108767815, -0.1762784, 0), Vector3(0.108767815, -0.1762784, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.799327, 8.373691),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(700, 700, 700), Vector3(700, 699.9999, 699.99994), Vector3(700, 699.9998, 699.99994)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hlf6d"]
+_data = {
+&"RESET": SubResource("Animation_mpdxq"),
+&"new_animation": SubResource("Animation_qpt3k")
+}
+
+[sub_resource type="Animation" id="Animation_ojgl5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-404.29514, 218.96797, 47.692223)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_rycwp"]
+resource_name = "aaaaaaa"
+length = 10.066667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.86, 8.237376),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-404.29514, 218.96797, 47.692223), Vector3(-84.419106, 366.83124, 47.692223), Vector3(-13.124, 226.002, 47.692)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.86, 8.237376),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.86, 8.237376, 8.297377, 8.317376),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(5.285, 5.285, 5.285), Vector3(1.595, 1.595, 1.595), Vector3(1.595, 1.595, 1.595), Vector3(1.205, 1.205, 1.205)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5sxou"]
+_data = {
+&"RESET": SubResource("Animation_ojgl5"),
+&"aaaaaaa": SubResource("Animation_rycwp")
+}
+
+[node name="dios" type="Node3D" unique_id=153427568]
+
+[node name="c91a83ef237948fea3f49a9bfb12c2f0" parent="." unique_id=1262063576 instance=ExtResource("1_oax2q")]
+transform = Transform3D(-7.497878, -99.71851, 0, 97.162735, -7.305708, 22.49511, -22.431787, 1.6866555, 97.43702, 33.1, 452.625, 2.561)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="c91a83ef237948fea3f49a9bfb12c2f0" unique_id=141725729]
+libraries/ = SubResource("AnimationLibrary_mpdxq")
+autoplay = &"god"
+
+[node name="Thrones_Angel_Final" parent="." unique_id=1375327830 instance=ExtResource("3_jpk4n")]
+transform = Transform3D(700, 0, 0, 0, 700, 0, 0, 0, 700, -483.4906, 227.94556, -39.041046)
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Thrones_Angel_Final" unique_id=496754252]
+libraries/ = SubResource("AnimationLibrary_hlf6d")
+autoplay = &"new_animation"
+
+[node name="Label3D" type="Label3D" parent="." unique_id=1579007021]
+transform = Transform3D(0.39717373, 0, 0.9177435, 0, 1, 0, -0.9177435, 0, 0.39717373, -408.75534, 582.88403, -53.39856)
+pixel_size = 2.0
+font_size = 39
+script = ExtResource("4_ojgl5")
+frases = Array[String](["Hola, puedes verme?", "Necesito tu ayuda....", "DIos esta de vacaciones", "Y necesito que tengas un....", "PVP CONTRA EL DIABLO", "Este es el cañon que usaras", "Veamos de que estas hecho..."])
+duracion_aparicion = 1.0
+tiempo_espera = 1.0
+demora_inicial = 4.0
+velocidad_rgb = 1.0
+
+[node name="StaticBody3D" parent="." unique_id=1135498982 instance=ExtResource("4_rycwp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -404.29514, 218.96797, 47.692223)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StaticBody3D" unique_id=594264326]
+libraries/ = SubResource("AnimationLibrary_5sxou")
+autoplay = &"aaaaaaa"
