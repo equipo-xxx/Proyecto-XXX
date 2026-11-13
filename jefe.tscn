@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://3jen8800sxng"]
+
+[ext_resource type="Material" uid="uid://ksork7klxymj" path="res://Texturas/pasto.tres" id="1_esenr"]
+[ext_resource type="Texture2D" uid="uid://cx782i5a31lfs" path="res://Texturas/green-grass-texture-close-up.jpg" id="5_8kywn"]
+[ext_resource type="Texture2D" uid="uid://8ir354pyr122" path="res://Imagenes/14.jpeg" id="6_esenr"]
+[ext_resource type="Script" uid="uid://bf2ugde25cbu6" path="res://diabloo.gd" id="6_wndhi"]
+[ext_resource type="Script" uid="uid://d04gv0pfc0y0l" path="res://jefe.gd" id="6_xxh3o"]
+[ext_resource type="PackedScene" uid="uid://cyafa5phjkvto" path="res://escenas/node_3d.tscn" id="7_gpunr"]
+[ext_resource type="PackedScene" uid="uid://c106xpgyquy4c" path="res://dios22.tscn" id="7_vwtss"]
+[ext_resource type="PackedScene" uid="uid://b02oluyx4y7q7" path="res://player.tscn" id="8_2881v"]
+[ext_resource type="Script" uid="uid://rpqbjcrmbh8k" path="res://jefemodelo.gd" id="8_ge1sd"]
+[ext_resource type="PackedScene" uid="uid://q58ttutgkhfl" path="res://escenas/rocket.tscn" id="8_gpunr"]
+[ext_resource type="Script" uid="uid://mmqlgq2rjx1g" path="res://rpg_7.gd" id="9_llimc"]
+[ext_resource type="PackedScene" uid="uid://boenpdmd87ev" path="res://diosfinal.tscn" id="12_ge1sd"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_75fq2"]
+size = Vector3(9.94939, 0.48095703, 8.696655)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5w1u6"]
+size = Vector3(9.962082, 0.49572754, 8.69812)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0m2as"]
+albedo_texture = ExtResource("5_8kywn")
+
+[sub_resource type="BoxMesh" id="BoxMesh_qrdh6"]
+size = Vector3(42.102486, 0.49951172, 51.364563)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tv1cb"]
+size = Vector3(7.688843, 0.51657104, 9.813538)
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_qsfje"]
+panorama = ExtResource("6_esenr")
+
+[sub_resource type="Sky" id="Sky_2u3ne"]
+sky_material = SubResource("PanoramaSkyMaterial_qsfje")
+
+[sub_resource type="Environment" id="Environment_8jbkf"]
+background_mode = 2
+sky = SubResource("Sky_2u3ne")
+sky_custom_fov = 98.2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x2c7a"]
+size = Vector3(18.623596, 4.3844604, 4.871582)
+
+[node name="Node3D" type="Node3D" unique_id=883303095]
+script = ExtResource("6_xxh3o")
+
+[node name="piso" type="StaticBody3D" parent="." unique_id=1298896885]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="piso" unique_id=959995811]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.16081154, -0.25952148, 0.73846436)
+material_override = ExtResource("1_esenr")
+mesh = SubResource("BoxMesh_75fq2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="piso" unique_id=1157920361]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17536545, -0.25558186, 0.74798584)
+shape = SubResource("BoxShape3D_5w1u6")
+
+[node name="Piso cañon" type="StaticBody3D" parent="." unique_id=397385434]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Piso cañon" unique_id=717366654]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3208475, -0.92159176, -39.844826)
+material_override = SubResource("StandardMaterial3D_0m2as")
+mesh = SubResource("BoxMesh_qrdh6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Piso cañon" unique_id=1944373017]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75258636, 0.033737183, -36.79373)
+shape = SubResource("BoxShape3D_tv1cb")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1899168726]
+transform = Transform3D(-0.720352, 0, -0.6936087, 0, 1, 0, 0.6936087, 0, -0.720352, -5.8409443, 3.0789185, -3.1214836)
+spot_range = 11.082689
+spot_angle = 30.687365
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="." unique_id=436363793]
+transform = Transform3D(-0.73492223, 0, 0.6781514, 0, 1, 0, -0.6781514, 0, -0.7349223, 5.0275745, 2.932373, -4.064076)
+spot_range = 12.486294
+spot_angle = 32.295193
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1045958666]
+environment = SubResource("Environment_8jbkf")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1494138538]
+transform = Transform3D(-0.9987678, 0, -0.049628004, 0, 1, 0, 0.049628004, 0, -0.9987678, 0.480896, 1.6089067, -42.46407)
+
+[node name="player" parent="." unique_id=150122534 instance=ExtResource("8_2881v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2331321, -38.94045)
+
+[node name="Camera3D" parent="player" index="2" unique_id=975250778]
+current = true
+
+[node name="jefe" type="Node3D" parent="." unique_id=2021631800 node_paths=PackedStringArray("objetivo")]
+script = ExtResource("6_wndhi")
+tiempo_entre_ataques = 1.0
+objetivo = NodePath("../player")
+
+[node name="Node3D" parent="." unique_id=966027143 instance=ExtResource("7_vwtss")]
+transform = Transform3D(-0.09186842, 0, 0.99577117, 0, 1, 0, -0.99577117, 0, -0.09186842, -41.53353, -226.77731, -50.455856)
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="Node3D/Meshy_AI_Crimson_Grin_20261102_texture" parent_id_path=PackedInt32Array(966027143, 421759067) index="2" unique_id=1064975930]
+script = ExtResource("8_ge1sd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Meshy_AI_Crimson_Grin_20261102_texture/CharacterBody3D" unique_id=1074876383]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0096993, 48.716854, -4.355023)
+shape = SubResource("BoxShape3D_x2c7a")
+
+[node name="Node3D2" parent="." unique_id=2127257715 instance=ExtResource("7_gpunr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 85.816635)
+
+[node name="Node3D3" parent="." unique_id=707447268 instance=ExtResource("8_gpunr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.832283, 0, 36.106133)
+script = ExtResource("9_llimc")
+escena_victoria = ExtResource("12_ge1sd")
+
+[editable path="player"]
+[editable path="Node3D"]
+[editable path="Node3D/dios"]

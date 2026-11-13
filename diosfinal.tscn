@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://boenpdmd87ev"]
+
+[ext_resource type="Texture2D" uid="uid://beskj565pfav" path="res://Texturas/6.jpeg" id="1_wsffh"]
+[ext_resource type="Texture2D" uid="uid://dg2xwncnit6tv" path="res://Imagenes/9.jpeg" id="2_3yvqj"]
+
+[node name="Control" type="Control" unique_id=2021852096]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1503443401]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.51849383, 0.51105326, 0.89458406, 1)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=509829019]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.097
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 59.856003
+offset_right = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1616899567]
+layout_mode = 0
+offset_left = 424.0
+offset_top = 432.0
+offset_right = 744.0
+offset_bottom = 528.0
+
+[node name="6" type="Sprite2D" parent="VBoxContainer" unique_id=1168260081]
+position = Vector2(169, -92)
+scale = Vector2(2.6487696, 1.505593)
+texture = ExtResource("1_wsffh")
+
+[node name="9" type="Sprite2D" parent="VBoxContainer/6" unique_id=138504266]
+position = Vector2(0.09439087, -0.830246)
+scale = Vector2(0.6174304, 1.0787145)
+texture = ExtResource("2_3yvqj")
+
+[node name="Nivel 2" type="Button" parent="VBoxContainer" unique_id=627280588]
+layout_mode = 2
+theme_override_font_sizes/font_size = 37
+text = "Volver al menu"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=1506807393]
+layout_mode = 0
+offset_left = 191.0
+offset_top = 109.0
+offset_right = 905.0
+offset_bottom = 247.0
+
+[node name="Button" type="Button" parent="VBoxContainer2" unique_id=704924759]
+layout_mode = 2
+theme_override_font_sizes/font_size = 47
+text = "Gracias por todo hijo mio"

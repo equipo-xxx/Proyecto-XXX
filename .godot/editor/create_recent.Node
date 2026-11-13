@@ -1,0 +1,14 @@
+Sprite3D
+CollisionShape3D
+CharacterBody3D
+Area3D
+AnimationPlayer
+MeshInstance3D
+AnimatedSprite2D
+Node3D
+Camera3D
+WorldEnvironment
+Label3D
+Label
+AnimationTree
+CollisionPolygon3D

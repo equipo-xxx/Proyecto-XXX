@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://do8edi5d6xgrd"]
+
+[ext_resource type="Texture2D" uid="uid://bskht42u5x4fx" path="res://MODELOS/angel/Thrones_Angels_lambert1_Metallic.png" id="1_442ie"]
+[ext_resource type="Texture2D" uid="uid://dl0mxgjl0m86d" path="res://MODELOS/angel/Thrones_Angels_lambert1_BaseColor.png" id="1_hkf1r"]
+[ext_resource type="Texture2D" uid="uid://c8k1fcoegweqj" path="res://MODELOS/angel/Thrones_Angels_lambert1_Normal.png" id="2_hkf1r"]
+[ext_resource type="Texture2D" uid="uid://iy7ia301jgd4" path="res://MODELOS/angel/Thrones_Angels_lambert1_Roughness.png" id="3_fmm7m"]
+
+[resource]
+resource_name = "standardSurface2"
+albedo_texture = ExtResource("1_hkf1r")
+metallic = 1.0
+metallic_texture = ExtResource("1_442ie")
+roughness_texture = ExtResource("3_fmm7m")
+emission_enabled = true
+normal_enabled = true
+normal_scale = 0.0
+normal_texture = ExtResource("2_hkf1r")
