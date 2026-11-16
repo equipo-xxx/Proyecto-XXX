@@ -1,12 +1,12 @@
 78098b89c88a74ebe8c20117b8754620
-::res://::1794569341
+::res://::1794826929
 diabloo.gd::GDScript::2794328320877830683::1794569157::0::1::::JefeDiablo<>Node3D<><>0<>0<><>::
 dios22.tscn::PackedScene::6651284844093836508::1794569157::0::1::::<><><>0<>0<><>::uid://dwxmcabob3p4r::::res://escenas/dios.tscn<>uid://25vqc4s2osit::::res://MODELOS/angel/Meshy_AI_Crimson_Grin_20261102_texture.fbx
 diosfinal.tscn::PackedScene::99357008521932437::1794569157::0::1::::<><><>0<>0<><>::uid://beskj565pfav::::res://Texturas/6.jpeg<>uid://dg2xwncnit6tv::::res://Imagenes/9.jpeg
 icon.svg::CompressedTexture2D::3323162174175559719::1794569157::1794569157::1::::<><><>0<>0<>766db2c29a60bf756d9b86ce402945a3<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.s3tc.ctex::
 indicador ataque.gd::GDScript::6350314416285366884::1794569157::0::1::::IndicadorAtaque<>Node3D<><>0<>0<><>::
 jefe.gd::GDScript::8974253237013128709::1794569157::0::1::::<>Node3D<><>0<>0<><>::
-jefe.tscn::PackedScene::1984134890362403228::1794569157::0::1::::<><><>0<>0<><>::uid://ksork7klxymj::::res://Texturas/pasto.tres<>uid://cx782i5a31lfs::::res://Texturas/green-grass-texture-close-up.jpg<>uid://8ir354pyr122::::res://Imagenes/14.jpeg<>uid://bf2ugde25cbu6::::res://diabloo.gd<>uid://d04gv0pfc0y0l::::res://jefe.gd<>uid://cyafa5phjkvto::::res://escenas/node_3d.tscn<>uid://c106xpgyquy4c::::res://dios22.tscn<>uid://b02oluyx4y7q7::::res://player.tscn<>uid://rpqbjcrmbh8k::::res://jefemodelo.gd<>uid://q58ttutgkhfl::::res://escenas/rocket.tscn<>uid://mmqlgq2rjx1g::::res://rpg_7.gd<>uid://boenpdmd87ev::::res://diosfinal.tscn
+jefe.tscn::PackedScene::1984134890362403228::1794569421::0::1::::<><><>0<>0<><>::uid://ksork7klxymj::::res://Texturas/pasto.tres<>uid://cx782i5a31lfs::::res://Texturas/green-grass-texture-close-up.jpg<>uid://8ir354pyr122::::res://Imagenes/14.jpeg<>uid://bf2ugde25cbu6::::res://diabloo.gd<>uid://d04gv0pfc0y0l::::res://jefe.gd<>uid://cyafa5phjkvto::::res://escenas/node_3d.tscn<>uid://c106xpgyquy4c::::res://dios22.tscn<>uid://b02oluyx4y7q7::::res://player.tscn<>uid://rpqbjcrmbh8k::::res://jefemodelo.gd<>uid://q58ttutgkhfl::::res://escenas/rocket.tscn<>uid://mmqlgq2rjx1g::::res://rpg_7.gd<>uid://boenpdmd87ev::::res://diosfinal.tscn
 jefemodelo.gd::GDScript::1225149742423862384::1794569157::0::1::::<>CharacterBody3D<><>0<>0<><>::
 player.tscn::PackedScene::4197750744262267184::1794569157::0::1::::<><><>0<>0<><>::uid://b7xl3rqcivipg::::res://player.gd
 rocket.gd::GDScript::4873753139677162598::1794569157::0::1::::Cohete<>Area3D<><>0<>0<><>::
@@ -24,13 +24,13 @@ nivel_1_superado.gd::GDScript::1123620455268179157::1794569157::0::1::::nivel_33
 Perdiste.gd::GDScript::5678873408848160468::1794569157::0::1::::<>Control<><>0<>0<><>::
 player.gd::GDScript::4680663175319500172::1794569157::0::1::::Jugador<>CharacterBody3D<><>0<>0<><>::
 salir.gd::GDScript::8412121664404641993::1794569157::0::1::::BotonSalir<>Button<><>0<>0<><>::
-::res://escenas/::1794569158
+::res://escenas/::1794574302
 17segundos.tscn::PackedScene::3547311926244587863::1794569158::0::1::::<><><>0<>0<><>::uid://ksork7klxymj::::res://Texturas/pasto.tres
 area2.tscn::PackedScene::2928019662662564801::1794569158::0::1::::<><><>0<>0<><>::uid://b5wlksxfgc1e1::::res://codigo/area2.gd
 area3.tscn::PackedScene::7750475293963585097::1794569158::0::1::::<><><>0<>0<><>::uid://dqasdi3xwral2::::res://codigo/area3.gd
 areaa.tscn::PackedScene::5015079016649424596::1794569158::0::1::::<><><>0<>0<><>::uid://dy2ivjqvt31ne::::res://codigo/areaa.gd
 c91a83ef237948fea3f49a9bfb12c2f0.fbx::PackedScene::5390611627903269968::1794569158::1794569158::1::::<><><>0<>0<>c648a6cc7bbf1d22f45c9e0633597ad6<>res://.godot/imported/c91a83ef237948fea3f49a9bfb12c2f0.fbx-43d16d94a2d17969e219c14b525e464d.scn::
-cannon.tscn::PackedScene::4285404229845945873::1794569158::0::1::::<><><>0<>0<><>::uid://d0wcjcy1c2idy::::res://Texturas/Screenshot_20261026_082308-1.png<>uid://bmcqcx4unipp4::::res://Texturas/janson_g-wheel-2960045.png<>uid://c64hentjcwrji::::res://Texturas/mehchh-removebg-preview.png
+cannon.tscn::PackedScene::4285404229845945873::1794574302::0::1::::<><><>0<>0<><>::uid://d0wcjcy1c2idy::::res://Texturas/Screenshot_20261026_082308-1.png<>uid://bmcqcx4unipp4::::res://Texturas/janson_g-wheel-2960045.png<>uid://c64hentjcwrji::::res://Texturas/mehchh-removebg-preview.png
 cannon_ball.tscn::PackedScene::187845649316850386::1794569158::0::1::::<><><>0<>0<><>::uid://cjd4kmveyqlff::::res://codigo/cannon_ball.gd
 canon2.tscn::PackedScene::3422190126292590942::1794569158::0::1::::<><><>0<>0<><>::
 dios.tscn::PackedScene::8751629477143753367::1794569158::0::1::::<><><>0<>0<><>::uid://ci2it6lr3i3s3::::res://escenas/c91a83ef237948fea3f49a9bfb12c2f0.fbx<>uid://1ruawipml65y::::res://MODELOS/angel/Thrones_Angel_Final.fbx<>uid://kunaijrg6ca8::::res://codigo/label_3d.gd<>uid://b2b48mxigpxxp::::res://escenas/cannon.tscn
@@ -44,7 +44,7 @@ nivel_2.tscn::PackedScene::4156456634572523918::1794569158::0::1::::<><><>0<>0<>
 nivel_3.tscn::PackedScene::2864203990696473185::1794569158::0::1::::<><><>0<>0<><>::uid://ksork7klxymj::::res://Texturas/pasto.tres<>uid://ckg8diltc745x::::res://Imagenes/images.jpeg<>uid://cbapyy07iq64m::::res://Imagenes/2.jpeg<>uid://dkuqg4ab1dept::::res://Imagenes/3.jpeg<>uid://cx782i5a31lfs::::res://Texturas/green-grass-texture-close-up.jpg<>uid://ns1rqufobjq::::res://Imagenes/7.jpeg<>uid://b2b48mxigpxxp::::res://escenas/cannon.tscn<>uid://b02oluyx4y7q7::::res://player.tscn<>uid://diongwjdan3cn::::res://escenas/area3.tscn
 node_3d.tscn::PackedScene::6457678798865875176::1794569158::0::1::::<><><>0<>0<><>::uid://de4n3r4p8lil8::::res://Texturas/pngwing.com.png
 pared.tscn::PackedScene::3841129868352723398::1794569158::0::1::::<><><>0<>0<><>::
-player.tscn::PackedScene::6495421980476924620::1794569158::0::1::::<><><>0<>0<><>::uid://b7xl3rqcivipg::::res://codigo/player.gd<>uid://q58ttutgkhfl::::res://escenas/rocket.tscn
+player.tscn::PackedScene::6495421980476924620::1794574146::0::1::::<><><>0<>0<><>::uid://b7xl3rqcivipg::::res://codigo/player.gd<>uid://q58ttutgkhfl::::res://escenas/rocket.tscn
 rocket.tscn::PackedScene::1186991451387231201::1794569158::0::1::::<><><>0<>0<><>::uid://cbo5acqmdho3o::::res://rocket.gd<>uid://co432mq1bvw20::::res://MODELOS/angel/Rpg 7.obj
 world.tscn::PackedScene::767973850346527509::1794569158::0::1::::<><><>0<>0<><>::uid://cysowet5ykqjk::::res://escenas/player.tscn<>uid://buyw328nxybm1::::res://escenas/pared.tscn<>uid://cdplvbhcnorro::::res://escenas/areaa.tscn<>uid://b2b48mxigpxxp::::res://escenas/cannon.tscn<>uid://ksork7klxymj::::res://Texturas/pasto.tres<>uid://iwbo3dvxp21h::::res://Texturas/nube-blanca-cielo-azul_1203-9362.jpg<>uid://dwxmcabob3p4r::::res://escenas/dios.tscn<>uid://v7u4rmrgwve4::::res://Imagenes/Cartel__controles-removebg-preview.png<>uid://bqslyd1xl2c0v::::res://escenas/17segundos.tscn
 ::res://Imagenes/::1794569157

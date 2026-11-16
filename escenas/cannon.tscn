@@ -144,7 +144,7 @@ mesh = SubResource("CylinderMesh_x2c7a")
 transform = Transform3D(1, 0, 0, 0, 0.9848973, -0.17313948, 0, 0.17313948, 0.9848973, -0.42928886, 2.1132944, 0.55271506)
 
 [node name="shoot_point" type="Node3D" parent="cannonBarrel" unique_id=90522675]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.44326955, -5.5629797, -1.9317667)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.44326955, -1.9903629, -1.3081305)
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1804939331]
 
