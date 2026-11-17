@@ -3,7 +3,7 @@
 
 > Documento **generado automáticamente** por la cátedra de Programación II (RepoSense + análisis de calidad POO/SOLID). **No editar a mano**: se regenera en cada evaluación.
 > Rama evaluada: `main`. Análisis **heurístico** (regex + métricas): es una criba para orientar la revisión, **no una nota**.
-> Generado: 2026-11-16.
+> Generado: 2026-11-17.
 
 ## 1. Veredicto
 
@@ -78,7 +78,7 @@ Reúne lo que el análisis marcó y lo que todavía falta para cada semáforo. C
 | Señales POO/SOLID críticas | Baja cohesión (LCOM), Complejidad alta | Destacar: ninguna | `codigo/cannon.gd`, `codigo/player.gd` |
 | Índice de calidad POO/SOLID | 33/100 | Destacar: ≥ 60 | — |
 | Métodos/funciones largos o con muchos parámetros | **1** método(s)/función(es) largos o con muchos parámetros | Sin señales | `indicador ataque.gd` |
-| Campos públicos (encapsulación) | **5** clase(s) con campos públicos | Sin señales | `codigo/area2.gd`, `codigo/area3.gd`, `codigo/areaa.gd`, `codigo/cannon.gd`, `codigo/label_3d.gd` |
+| Campos mutables públicos (encapsulación) | **5** clase(s) con campos mutables públicos | Sin señales | `codigo/area2.gd`, `codigo/area3.gd`, `codigo/areaa.gd`, `codigo/cannon.gd`, `codigo/label_3d.gd` |
 
 ## 4. Aspectos evaluados
 
@@ -179,44 +179,59 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
 - **Por qué importa:** Suele indicar que la jerarquía no representa bien el problema y rompe la sustitución entre clases.
 - **Tu resultado:** **0** override(s) vacío(s) o 'no implementado'
 
-### 14. Dependencia de concretos y falta de abstracciones (DIP) (dip) — sin señales
-
-- **Qué mide:** Instanciación directa de clases **propias** concretas y ausencia de interfaces o clases abstractas pese al acoplamiento. No cuentan los structs ni los nodos/tipos del motor.
-- **Por qué importa:** Depender de implementaciones concretas dificulta cambiar o probar una parte sin arrastrar las demás.
-- **Tu resultado:** **0** dependencia(s) de concretos sin abstracciones
-
-### 15. Clase sin métodos (solo datos) (data) — sin señales
+### 14. Clase sin métodos (solo datos) (data) — sin señales
 
 - **Qué mide:** Clases que solo acumulan campos y no tienen comportamiento.
 - **Por qué importa:** Separar datos de comportamiento reparte por el proyecto la lógica que debería estar cerca de esos datos.
 - **Tu resultado:** **0** clase(s) sin métodos (solo datos)
 
-### 16. Campos públicos (encapsulación) (encapsulacion) — con señales
+### 15. Campos mutables públicos (encapsulación) (encapsulacion) — con señales
 
-- **Qué mide:** Clases que exponen campos sin control de acceso.
+- **Qué mide:** Clases que exponen estado **modificable** desde afuera. No cuentan constantes (`static final`, `const`), campos `final`/`readonly`, propiedades `val` de Kotlin ni propiedades con `private set`.
 - **Por qué importa:** Expone el estado interno y hace que cualquier cambio dependa de quién lo modifica desde afuera.
-- **Tu resultado:** **5** clase(s) con campos públicos
+- **Tu resultado:** **5** clase(s) con campos mutables públicos
 - **Para investigar la causa:**
     - ¿Se accede al campo desde otras clases para evitar un método?
     - ¿Qué reglas deberían respetarse al modificar ese estado?
-    - ¿Los campos públicos se usan más como configuración que como estado?
+    - ¿Los campos mutables se usan más como configuración que como estado?
 
-### 17. Clase solo con métodos estáticos (utilitaria) (static) — sin señales
+### 16. Clase solo con métodos estáticos (utilitaria) (static) — sin señales
 
 - **Qué mide:** Clases donde todos los métodos son estáticos.
 - **Por qué importa:** Es comportamiento procedural disfrazado de clase: no se instancia ni participa del modelo de objetos.
 - **Tu resultado:** **0** clase(s) solo con métodos estáticos
 
+### Desglose de la columna S (SRP)
+
+> La columna **S** no es un puntaje: cuenta **señales** de SRP. Aquí suma **2** entrada(s) sobre **2** clase(s) distinta(s).
+
+| Señal | Entradas | Regla (perfil exigente) |
+|---|---:|---|
+| Cohesión baja | 1 | < 50 % de los pares de métodos comparten algún campo (con ≥ 4 métodos con lógica y ≥ 3 campos). |
+| Complejidad alta | 1 | Algún método con complejidad ciclomática ≥ 10. |
+
+**Clases con baja cohesión (1)**
+
+- `Jugador`: cohesión baja (17% de pares comparten campos)
+
+**Complejidad alta (1)**
+
+- `Cannon`: complejidad alta (máx=11)
+
+> Los **1** hallazgo(s) de métodos largos o con muchos parámetros se listan en «Métodos/funciones largos o con muchos parámetros» y **no suman** a la columna S.
+
+> El análisis no excluye tests: una clase de test que supere los umbrales también suma.
+
 ## 5. Evolución por commit
 
-Métricas calculadas sobre el estado de `main` en **cada commit** (36 commits con trabajo), del primero al último. La calidad usa el perfil `exigente`; el aporte de código lo mide RepoSense. El índice puede **bajar** al crecer el proyecto: se acumulan señales.
+Métricas calculadas sobre el estado de `main` en **cada commit** (37 commits con trabajo), del primero al último. La calidad usa el perfil `exigente`; el aporte de código lo mide RepoSense. El índice puede **bajar** al crecer el proyecto: se acumulan señales.
 
 ```mermaid
 xychart-beta
     title "Índice POO/SOLID a lo largo de los commits"
-    x-axis ["153eda6", "598e451", "47bf296", "83b7a05", "47ec20e", "dce852b", "f58b476", "e6084dc", "79e2099", "28d4bff", "74f1442", "8907cd8", "dc49145", "bdef3ba", "80b679c", "48f7312", "48cd65b", "ec7c7f6", "cac2e03", "073a603", "6ea80a3", "f3deb5a", "4715730", "aa1d84e", "b5082ac", "110c570", "27860ea", "3b21f32", "b9b2cd3", "e2ad099", "2bc6b81", "42d00e8", "3be3c9c", "877530a", "9203c26", "cf007f0"]
+    x-axis ["153eda6", "598e451", "47bf296", "83b7a05", "47ec20e", "dce852b", "f58b476", "e6084dc", "79e2099", "28d4bff", "74f1442", "8907cd8", "dc49145", "bdef3ba", "80b679c", "48f7312", "48cd65b", "ec7c7f6", "cac2e03", "073a603", "6ea80a3", "f3deb5a", "4715730", "aa1d84e", "b5082ac", "110c570", "27860ea", "3b21f32", "b9b2cd3", "e2ad099", "2bc6b81", "42d00e8", "3be3c9c", "877530a", "9203c26", "cf007f0", "f9650a0"]
     y-axis "Índice" 0 --> 100
-    line [0, 0, 0, 0, 0, 0, 0, 9, 64, 43, 53, 73, 73, 73, 73, 0, 0, 0, 73, 77, 77, 77, 77, 77, 73, 73, 0, 0, 0, 0, 33, 33, 33, 33, 33, 33]
+    line [0, 0, 0, 0, 0, 0, 0, 9, 64, 43, 53, 73, 73, 73, 73, 0, 0, 0, 73, 77, 77, 77, 77, 77, 73, 73, 0, 0, 0, 0, 33, 33, 33, 33, 33, 33, 33]
 ```
 
 | # | Fecha | Commit | Autor | LOC | Índice | %POO | Duplic. | Sueltas |
@@ -257,87 +272,7 @@ xychart-beta
 | 34 | 2026-11-13 | `877530a` | dqmdz-etec | 590 | 33 | 100% | 24.9% | 0 |
 | 35 | 2026-11-13 | `9203c26` | dqmdz-etec | 590 | 33 | 100% | 24.9% | 0 |
 | 36 | 2026-11-14 | `cf007f0` | dqmdz-etec | 590 | 33 | 100% | 24.9% | 0 |
-
-<!-- actividad-clases:inicio -->
-## Actividad en días de clase
-
-> Período evaluado **2026-08-14 → 2026-11-16** · **22 clases** (lunes, viernes) · días de clase del calendario, extendidos hasta la fecha de corte.
->
-> `Commits` = commits de trabajo (no-merge); `Merges` = merges de PR (también son push). Los días sin actividad dicen **sin actividad**. El cuadro principal usa sólo las fechas de clase del calendario oficial.
->
-> **Aportes fuera del calendario:** cada alumno tiene un cuadro aparte con las fechas no lectivas con actividad, desde **2026-08-14** hasta **2026-11-16** (ventana de aportes). Esas fechas no forman parte del cuadro principal, pero se muestran para no perder trabajo hecho en fines de semana, feriados o después del período.
->
-> Se recorre `git log --all` sobre un mirror (todas las ramas y `refs/pull/*`), con deduplicación por commit. Fecha = fecha de autor en UTC-3. Los commits locales no pusheados no se ven. Si el trabajo fue en pareja y el commit es de otra persona, figura a nombre del autor del commit; para reflejarlo, usar `Co-authored-by` o una nota manual.
->
-> Sección informativa: no modifica el semáforo de aprobación.
-
-### htrillo-code
-
-**8/22 clases con actividad** · 22 commits · 6 merges
-
-| Fecha | Marca | Repositorios | Commits / merges |
-|---|:--:|---|--:|
-| 2026-08-14 | No | sin actividad | 0 / 0 |
-| 2026-08-21 | No | sin actividad | 0 / 0 |
-| 2026-08-24 | No | sin actividad | 0 / 0 |
-| 2026-08-28 | **Sí** | Proyecto-XXX | 5 / 0 |
-| 2026-08-31 | No | sin actividad | 0 / 0 |
-| 2026-09-04 | No | sin actividad | 0 / 0 |
-| 2026-09-07 | No | sin actividad | 0 / 0 |
-| 2026-09-14 | No | sin actividad | 0 / 0 |
-| 2026-09-25 | No | sin actividad | 0 / 0 |
-| 2026-09-28 | No | sin actividad | 0 / 0 |
-| 2026-10-02 | **Sí** | Proyecto-XXX | 1 / 0 |
-| 2026-10-05 | No | sin actividad | 0 / 0 |
-| 2026-10-09 | **Sí** | Proyecto-XXX | 1 / 0 |
-| 2026-10-16 | **Sí** | Proyecto-XXX | 5 / 4 |
-| 2026-10-19 | **Sí** | Proyecto-XXX | 7 / 0 |
-| 2026-10-23 | **Sí** | Proyecto-XXX | 1 / 1 |
-| 2026-10-26 | No | sin actividad | 0 / 0 |
-| 2026-10-30 | **Sí** | Proyecto-XXX | 1 / 0 |
-| 2026-11-02 | No | sin actividad | 0 / 0 |
-| 2026-11-06 | No | sin actividad | 0 / 0 |
-| 2026-11-13 | **Sí** | Proyecto-XXX | 1 / 1 |
-| 2026-11-16 | No | sin actividad | 0 / 0 |
-
-#### Aportes fuera del calendario de clases — htrillo-code
-
-_Sin aportes fuera del calendario de clases para htrillo-code._
-
-### Mateo Cruz
-
-**8/22 clases con actividad** · 25 commits · 7 merges
-
-| Fecha | Marca | Repositorios | Commits / merges |
-|---|:--:|---|--:|
-| 2026-08-14 | No | sin actividad | 0 / 0 |
-| 2026-08-21 | No | sin actividad | 0 / 0 |
-| 2026-08-24 | No | sin actividad | 0 / 0 |
-| 2026-08-28 | No | sin actividad | 0 / 0 |
-| 2026-08-31 | No | sin actividad | 0 / 0 |
-| 2026-09-04 | No | sin actividad | 0 / 0 |
-| 2026-09-07 | **Sí** | Proyecto-XXX | 1 / 0 |
-| 2026-09-14 | No | sin actividad | 0 / 0 |
-| 2026-09-25 | No | sin actividad | 0 / 0 |
-| 2026-09-28 | No | sin actividad | 0 / 0 |
-| 2026-10-02 | No | sin actividad | 0 / 0 |
-| 2026-10-05 | No | sin actividad | 0 / 0 |
-| 2026-10-09 | **Sí** | Proyecto-XXX | 2 / 0 |
-| 2026-10-16 | **Sí** | Proyecto-XXX | 0 / 1 |
-| 2026-10-19 | **Sí** | Proyecto-XXX | 0 / 1 |
-| 2026-10-23 | **Sí** | Proyecto-XXX | 1 / 1 |
-| 2026-10-26 | No | sin actividad | 0 / 0 |
-| 2026-10-30 | **Sí** | Proyecto-XXX | 14 / 3 |
-| 2026-11-02 | **Sí** | Proyecto-XXX | 1 / 1 |
-| 2026-11-06 | No | sin actividad | 0 / 0 |
-| 2026-11-13 | **Sí** | Proyecto-XXX | 6 / 0 |
-| 2026-11-16 | No | sin actividad | 0 / 0 |
-
-#### Aportes fuera del calendario de clases — Mateo Cruz
-
-_Sin aportes fuera del calendario de clases para Mateo Cruz._
-
-<!-- actividad-clases:fin -->
+| 37 | 2026-11-16 | `f9650a0` | dqmdz-etec | 590 | 33 | 100% | 24.9% | 0 |
 
 ---
 _Informe generado por la cátedra. Los criterios y umbrales de medición corresponden al perfil `exigente` de `calidad.py`; el semáforo de aprobación, a `CRITERIOS-CALIDAD.md` (ver `README.md`). Ante dudas, revisá el archivo señalado._
