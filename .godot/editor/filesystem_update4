@@ -1,1 +1,5 @@
-res://jefe.tscn
+res://escenas/nivel_1_superado.tscn
+res://codigo/areaa.gd
+res://codigo/area2.gd
+res://codigo/area3.gd
+res://escenas/cannon.tscn

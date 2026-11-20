@@ -8,7 +8,6 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x2c7a"]
 
 [node name="CharacterBody3D" type="CharacterBody3D" unique_id=1576967727]
-visible = false
 script = ExtResource("1_4flbx")
 cohete_scene = ExtResource("2_kkt6c")
 
