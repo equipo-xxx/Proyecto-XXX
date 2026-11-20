@@ -9,15 +9,14 @@
 
 | Aspecto | Resultado |
 |---|---|
-| Índice de calidad POO/SOLID | **33/100** |
-| Código (LOC) | 590 |
+| Índice de calidad POO/SOLID | **85/100** |
+| Código (LOC) | 475 |
 | Archivos de código | 19 |
-| Clases (bien usadas) | 19 (12 OK) |
+| Clases (bien usadas) | 19 (15 OK) |
 | Código dentro de clases (%POO) | 100% |
 | Funciones fuera de clases | 0 |
-| Duplicación lógica | 24.9% |
+| Duplicación lógica | 0.0% |
 | Señales S/O/L/I/D | 2/0/0/0/0 |
-| Tope duro aplicado | `DUP>=15%` → índice ≤ 50 |
 
 > Este informe **describe** lo que el análisis midió con los criterios ya establecidos de la materia. No es una nota.
 
@@ -27,15 +26,15 @@ Criterios de `CRITERIOS-CALIDAD.md`. **Aprobar** se juega con el perfil `estanda
 
 | Semáforo | Resultado |
 |---|---|
-| Aprobar (`estandar`) | **no cumple** — 3/4 |
-| Destacar (`exigente`) | **no cumple** — 2/5 |
+| Aprobar (`estandar`) | **cumple** — 4/4 |
+| Destacar (`exigente`) | **no cumple** — 4/5 |
 
 **Criterios para aprobar**
 
 | Criterio | Requisito | Tu resultado | Cumple |
 |---|---|---|---|
 | Código dentro de clases (%POO) | ≥ 85% | 100% | sí |
-| Duplicación lógica | ≤ 10% | 24.9% | no |
+| Duplicación lógica | ≤ 10% | 0.0% | sí |
 | Funciones fuera de clases | ≤ 1 | 0 | sí |
 | Señales POO/SOLID críticas | ninguna | ninguna | sí |
 
@@ -44,10 +43,10 @@ Criterios de `CRITERIOS-CALIDAD.md`. **Aprobar** se juega con el perfil `estanda
 | Criterio | Requisito | Tu resultado | Cumple |
 |---|---|---|---|
 | Código dentro de clases (%POO) | ≥ 95% | 100% | sí |
-| Duplicación lógica | ≤ 5% | 24.9% | no |
+| Duplicación lógica | ≤ 5% | 0.0% | sí |
 | Funciones fuera de clases | ≤ 1 | 0 | sí |
 | Señales POO/SOLID críticas | ninguna | Baja cohesión (LCOM), Complejidad alta | no |
-| Índice de calidad POO/SOLID | ≥ 60 | 33/100 | no |
+| Índice de calidad POO/SOLID | ≥ 60 | 85/100 | sí |
 
 ### Cómo se calcula el %POO (y por qué no sube solo)
 
@@ -74,11 +73,9 @@ Reúne lo que el análisis marcó y lo que todavía falta para cada semáforo. C
 
 | Falla | Tu resultado | Requisito | Archivos |
 |---|---|---|---|
-| Duplicación lógica | 24.9% | Aprobar: ≤ 10%<br>Destacar: ≤ 5% | `codigo/areaa.gd` |
 | Señales POO/SOLID críticas | Baja cohesión (LCOM), Complejidad alta | Destacar: ninguna | `codigo/cannon.gd`, `codigo/player.gd` |
-| Índice de calidad POO/SOLID | 33/100 | Destacar: ≥ 60 | — |
 | Métodos/funciones largos o con muchos parámetros | **1** método(s)/función(es) largos o con muchos parámetros | Sin señales | `indicador ataque.gd` |
-| Campos mutables públicos (encapsulación) | **5** clase(s) con campos mutables públicos | Sin señales | `codigo/area2.gd`, `codigo/area3.gd`, `codigo/areaa.gd`, `codigo/cannon.gd`, `codigo/label_3d.gd` |
+| Campos mutables públicos (encapsulación) | **2** clase(s) con campos mutables públicos | Sin señales | `codigo/cannon.gd`, `codigo/label_3d.gd` |
 
 ## 4. Aspectos evaluados
 
@@ -88,17 +85,13 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
 
 - **Qué mide:** Un resumen numérico (0-100) que combina la riqueza de clases bien usadas con la penalización por señales POO/SOLID y duplicación, y luego aplica topes duros.
 - **Por qué importa:** Ordena y prioriza la revisión: un índice bajo indica varias señales que conviene mirar juntas.
-- **Tu resultado:** índice **33/100**
+- **Tu resultado:** índice **85/100**
 
-### 2. Duplicación lógica (DRY) (duplicacion) — con señales
+### 2. Duplicación lógica (DRY) (duplicacion) — sin señales
 
 - **Qué mide:** Porcentaje de bloques de LÓGICA repetidos. Quedan fuera imports/includes, anotaciones, declaraciones de campos y comentarios/Javadoc/docstrings: esos bloques son boilerplate, no lógica.
 - **Por qué importa:** Cada copia de lógica se mantiene por separado: un arreglo hay que repetirlo y los defectos se multiplican.
-- **Tu resultado:** **24.9%** de duplicación lógica
-- **Para investigar la causa:**
-    - ¿El trabajo se repartió por pantallas o archivos y se integró copiando y pegando bloques?
-    - ¿Qué zonas del sistema cambiaron juntas más de una vez (señal de lógica compartida)?
-    - ¿Hubo un lugar común acordado para la lógica repetida antes de empezar, o cada integrante resolvió lo suyo?
+- **Tu resultado:** **0.0%** de duplicación lógica
 
 ### 3. Adopción de POO (% de código en clases) (poo) — sin señales
 
@@ -189,7 +182,7 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
 
 - **Qué mide:** Clases que exponen estado **modificable** desde afuera. No cuentan constantes (`static final`, `const`), campos `final`/`readonly`, propiedades `val` de Kotlin ni propiedades con `private set`.
 - **Por qué importa:** Expone el estado interno y hace que cualquier cambio dependa de quién lo modifica desde afuera.
-- **Tu resultado:** **5** clase(s) con campos mutables públicos
+- **Tu resultado:** **2** clase(s) con campos mutables públicos
 - **Para investigar la causa:**
     - ¿Se accede al campo desde otras clases para evitar un método?
     - ¿Qué reglas deberían respetarse al modificar ese estado?
@@ -203,22 +196,13 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
 
 ### Archivos donde se originan las señales
 
-> Se listan **14** hallazgo(s) localizados en **7** archivo(s). La columna `Línea` es la línea del archivo donde el análisis detectó la señal; `—` indica una señal de nivel repositorio (sin archivo propio).
+> Se listan **5** hallazgo(s) localizados en **4** archivo(s). La columna `Línea` es la línea del archivo donde el análisis detectó la señal; `—` indica una señal de nivel repositorio (sin archivo propio).
 
 | Aspecto | Archivo | Línea | Hallazgo |
 |---|---|---:|---|
-| Duplicación lógica (DRY) | — | — | duplicación lógica: 24.9% · boilerplate: 0.0% |
-| Duplicación lógica (DRY) | `codigo/areaa.gd` | 14 | bloque de 8 líneas repetido 3 veces en codigo/areaa.gd:14, codigo/area3.gd:14, codigo/area2.gd:14 |
-| Duplicación lógica (DRY) | `codigo/areaa.gd` | 23 | bloque de 8 líneas repetido 3 veces en codigo/areaa.gd:23, codigo/area3.gd:23, codigo/area2.gd:23 |
-| Duplicación lógica (DRY) | `codigo/areaa.gd` | 24 | bloque de 8 líneas repetido 3 veces en codigo/areaa.gd:24, codigo/area3.gd:24, codigo/area2.gd:24 |
-| Duplicación lógica (DRY) | `codigo/areaa.gd` | 36 | bloque de 8 líneas repetido 3 veces en codigo/areaa.gd:36, codigo/area3.gd:36, codigo/area2.gd:36 |
-| Duplicación lógica (DRY) | `codigo/areaa.gd` | 51 | bloque de 8 líneas repetido 3 veces en codigo/areaa.gd:51, codigo/area3.gd:51, codigo/area2.gd:51 |
 | Baja cohesión (LCOM) | `codigo/player.gd` | 1 | clase 'Jugador' con baja cohesión (17%) |
 | Complejidad alta | `codigo/cannon.gd` | 26 | método 'Cannon._input' con complejidad 11 |
 | Métodos/funciones largos o con muchos parámetros | `indicador ataque.gd` | 10 | método 'IndicadorAtaque.iniciar' con 8 parámetros |
-| Campos mutables públicos (encapsulación) | `codigo/area2.gd` | 1 | clase 'ZonaVictoria3' con 4 campos mutables públicos (encapsulación) |
-| Campos mutables públicos (encapsulación) | `codigo/area3.gd` | 1 | clase 'ZonaVictoria4' con 4 campos mutables públicos (encapsulación) |
-| Campos mutables públicos (encapsulación) | `codigo/areaa.gd` | 1 | clase 'ZonaVictoria' con 4 campos mutables públicos (encapsulación) |
 | Campos mutables públicos (encapsulación) | `codigo/cannon.gd` | 1 | clase 'Cannon' con 10 campos mutables públicos (encapsulación) |
 | Campos mutables públicos (encapsulación) | `codigo/label_3d.gd` | 1 | clase 'LabelFlotante' con 4 campos mutables públicos (encapsulación) |
 
@@ -245,14 +229,14 @@ Cada aspecto indica **qué mide**, **por qué importa** y **tu resultado**. Cuan
 
 ## 5. Evolución por commit
 
-Métricas calculadas sobre el estado de `main` en **cada commit** (38 commits con trabajo), del primero al último. La calidad usa el perfil `exigente`; el aporte de código lo mide RepoSense. El índice puede **bajar** al crecer el proyecto: se acumulan señales.
+Métricas calculadas sobre el estado de `main` en **cada commit** (40 commits con trabajo), del primero al último. La calidad usa el perfil `exigente`; el aporte de código lo mide RepoSense. El índice puede **bajar** al crecer el proyecto: se acumulan señales.
 
 ```mermaid
 xychart-beta
     title "Índice POO/SOLID a lo largo de los commits"
-    x-axis ["153eda6", "598e451", "47bf296", "83b7a05", "47ec20e", "dce852b", "f58b476", "e6084dc", "79e2099", "28d4bff", "74f1442", "8907cd8", "dc49145", "bdef3ba", "80b679c", "48f7312", "48cd65b", "ec7c7f6", "cac2e03", "073a603", "6ea80a3", "f3deb5a", "4715730", "aa1d84e", "b5082ac", "110c570", "27860ea", "3b21f32", "b9b2cd3", "e2ad099", "2bc6b81", "42d00e8", "3be3c9c", "877530a", "9203c26", "cf007f0", "f9650a0", "5569e75"]
+    x-axis ["153eda6", "598e451", "47bf296", "83b7a05", "47ec20e", "dce852b", "f58b476", "e6084dc", "79e2099", "28d4bff", "74f1442", "8907cd8", "dc49145", "bdef3ba", "80b679c", "48f7312", "48cd65b", "ec7c7f6", "cac2e03", "073a603", "6ea80a3", "f3deb5a", "4715730", "aa1d84e", "b5082ac", "110c570", "27860ea", "3b21f32", "b9b2cd3", "e2ad099", "2bc6b81", "42d00e8", "3be3c9c", "877530a", "9203c26", "cf007f0", "f9650a0", "5569e75", "973240b", "ac5ba87"]
     y-axis "Índice" 0 --> 100
-    line [0, 0, 0, 0, 0, 0, 0, 9, 64, 43, 53, 73, 73, 73, 73, 0, 0, 0, 73, 77, 77, 77, 77, 77, 73, 73, 0, 0, 0, 0, 33, 33, 33, 33, 33, 33, 33, 33]
+    line [0, 0, 0, 0, 0, 0, 0, 9, 64, 43, 53, 73, 73, 73, 73, 0, 0, 0, 73, 77, 77, 77, 77, 77, 73, 73, 0, 0, 0, 0, 33, 33, 33, 33, 33, 33, 33, 33, 33, 85]
 ```
 
 | # | Fecha | Commit | Autor | LOC | Índice | %POO | Duplic. | Sueltas |
@@ -295,89 +279,8 @@ xychart-beta
 | 36 | 2026-11-14 | `cf007f0` | dqmdz-etec | 590 | 33 | 100% | 24.9% | 0 |
 | 37 | 2026-11-16 | `f9650a0` | dqmdz-etec | 590 | 33 | 100% | 24.9% | 0 |
 | 38 | 2026-11-17 | `5569e75` | dqmdz-etec | 590 | 33 | 100% | 24.9% | 0 |
-
-<!-- actividad-clases:inicio -->
-## Actividad en días de clase
-
-> Período evaluado **2026-08-14 → 2026-11-20** · **23 clases** (lunes, viernes) · días de clase del calendario, extendidos hasta la fecha de corte.
->
-> `Commits` = commits de trabajo (no-merge); `Merges` = merges de PR (también son push). Los días sin actividad dicen **sin actividad**. El cuadro principal usa sólo las fechas de clase del calendario oficial.
->
-> **Aportes fuera del calendario:** cada alumno tiene un cuadro aparte con las fechas no lectivas con actividad, desde **2026-08-14** hasta **2026-11-20** (ventana de aportes). Esas fechas no forman parte del cuadro principal, pero se muestran para no perder trabajo hecho en fines de semana, feriados o después del período.
->
-> Se recorre `git log --all` sobre un mirror (todas las ramas y `refs/pull/*`), con deduplicación por commit. Fecha = fecha de autor en UTC-3. Los commits locales no pusheados no se ven. Si el trabajo fue en pareja y el commit es de otra persona, figura a nombre del autor del commit; para reflejarlo, usar `Co-authored-by` o una nota manual.
->
-> Sección informativa: no modifica el semáforo de aprobación.
-
-### htrillo-code
-
-**9/23 clases con actividad** · 23 commits · 6 merges
-
-| Fecha | Marca | Repositorios | Commits / merges |
-|---|:--:|---|--:|
-| 2026-08-14 | No | sin actividad | 0 / 0 |
-| 2026-08-21 | No | sin actividad | 0 / 0 |
-| 2026-08-24 | No | sin actividad | 0 / 0 |
-| 2026-08-28 | **Sí** | Proyecto-XXX | 5 / 0 |
-| 2026-08-31 | No | sin actividad | 0 / 0 |
-| 2026-09-04 | No | sin actividad | 0 / 0 |
-| 2026-09-07 | No | sin actividad | 0 / 0 |
-| 2026-09-14 | No | sin actividad | 0 / 0 |
-| 2026-09-25 | No | sin actividad | 0 / 0 |
-| 2026-09-28 | No | sin actividad | 0 / 0 |
-| 2026-10-02 | **Sí** | Proyecto-XXX | 1 / 0 |
-| 2026-10-05 | No | sin actividad | 0 / 0 |
-| 2026-10-09 | **Sí** | Proyecto-XXX | 1 / 0 |
-| 2026-10-16 | **Sí** | Proyecto-XXX | 5 / 4 |
-| 2026-10-19 | **Sí** | Proyecto-XXX | 7 / 0 |
-| 2026-10-23 | **Sí** | Proyecto-XXX | 1 / 1 |
-| 2026-10-26 | No | sin actividad | 0 / 0 |
-| 2026-10-30 | **Sí** | Proyecto-XXX | 1 / 0 |
-| 2026-11-02 | No | sin actividad | 0 / 0 |
-| 2026-11-06 | No | sin actividad | 0 / 0 |
-| 2026-11-13 | **Sí** | Proyecto-XXX | 1 / 1 |
-| 2026-11-16 | **Sí** | Proyecto-XXX | 1 / 0 |
-| 2026-11-20 | No | sin actividad | 0 / 0 |
-
-#### Aportes fuera del calendario de clases — htrillo-code
-
-_Sin aportes fuera del calendario de clases para htrillo-code._
-
-### Mateo Cruz
-
-**8/23 clases con actividad** · 25 commits · 7 merges
-
-| Fecha | Marca | Repositorios | Commits / merges |
-|---|:--:|---|--:|
-| 2026-08-14 | No | sin actividad | 0 / 0 |
-| 2026-08-21 | No | sin actividad | 0 / 0 |
-| 2026-08-24 | No | sin actividad | 0 / 0 |
-| 2026-08-28 | No | sin actividad | 0 / 0 |
-| 2026-08-31 | No | sin actividad | 0 / 0 |
-| 2026-09-04 | No | sin actividad | 0 / 0 |
-| 2026-09-07 | **Sí** | Proyecto-XXX | 1 / 0 |
-| 2026-09-14 | No | sin actividad | 0 / 0 |
-| 2026-09-25 | No | sin actividad | 0 / 0 |
-| 2026-09-28 | No | sin actividad | 0 / 0 |
-| 2026-10-02 | No | sin actividad | 0 / 0 |
-| 2026-10-05 | No | sin actividad | 0 / 0 |
-| 2026-10-09 | **Sí** | Proyecto-XXX | 2 / 0 |
-| 2026-10-16 | **Sí** | Proyecto-XXX | 0 / 1 |
-| 2026-10-19 | **Sí** | Proyecto-XXX | 0 / 1 |
-| 2026-10-23 | **Sí** | Proyecto-XXX | 1 / 1 |
-| 2026-10-26 | No | sin actividad | 0 / 0 |
-| 2026-10-30 | **Sí** | Proyecto-XXX | 14 / 3 |
-| 2026-11-02 | **Sí** | Proyecto-XXX | 1 / 1 |
-| 2026-11-06 | No | sin actividad | 0 / 0 |
-| 2026-11-13 | **Sí** | Proyecto-XXX | 6 / 0 |
-| 2026-11-16 | No | sin actividad | 0 / 0 |
-| 2026-11-20 | No | sin actividad | 0 / 0 |
-
-#### Aportes fuera del calendario de clases — Mateo Cruz
-
-_Sin aportes fuera del calendario de clases para Mateo Cruz._
-
-<!-- actividad-clases:fin -->
+| 39 | 2026-11-20 | `973240b` | dqmdz-etec | 590 | 33 | 100% | 24.9% | 0 |
+| 40 | 2026-11-20 | `ac5ba87` | dqmdz-etec | 475 | 85 | 100% | 0.0% | 0 |
 
 ---
 _Informe generado por la cátedra. Los criterios y umbrales de medición corresponden al perfil `exigente` de `calidad.py`; el semáforo de aprobación, a `CRITERIOS-CALIDAD.md` (ver `README.md`). Ante dudas, revisá el archivo señalado._
